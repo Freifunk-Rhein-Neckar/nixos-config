@@ -14,7 +14,7 @@ to be [installed](https://nixos.org/download/#download-nix-accordion).
 
 Clone this repo with it's submodules and enter the dir.
 
-Run `nix-shell`. This will give you an shell where all relevant packages (colemna,
+Run `nix-shell`. This will give you an shell where all relevant packages (colmena,
 agenix, niv, ... ) are installed.
 
 #### Build only
