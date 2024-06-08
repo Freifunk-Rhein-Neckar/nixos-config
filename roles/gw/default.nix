@@ -34,6 +34,7 @@
     fastd = {
       peerDir = "/var/lib/fastd/peer_groups/nodes";
       secretKeyIncludeFile = config.age.secrets."fastd-secret.conf".path;
+      peerLimit = 100;
     };
     domains = {
       dom0 = {
