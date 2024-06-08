@@ -66,8 +66,8 @@
   networking.nftables.tables.nixos-fw = {
     content = ''
       chain input_extra {
-        tcp dport ${toString config.services.fastd-exporter.port} ip saddr { 5.189.157.196/32 } counter accept comment "fastd-exporter: accept from stats"
-        tcp dport ${toString config.services.fastd-exporter.port} ip6 saddr { 2a02:c207:3001:370::/64 } counter accept comment "fastd-exporter: accept from stats"
+        tcp dport ${toString config.services.fastd-exporter.port} ip saddr { 5.189.157.196/32 } counter accept comment "fastd-exporter: accept from stats.ffrn.de"
+        tcp dport ${toString config.services.fastd-exporter.port} ip6 saddr { 2a02:c207:3001:370::/64 } counter accept comment "fastd-exporter: accept from stats.ffrn.de"
       }
     '';
   };
