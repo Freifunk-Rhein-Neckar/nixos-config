@@ -74,9 +74,14 @@
 
   networking.nftables.tables.postrouting = {
     content = ''
+      chain postrouting_extra {}
+
       chain postrouting {
         type nat hook postrouting priority srcnat; policy accept;
-        ip saddr 10.0.0.0/8 counter masquerade
+
+        jump postrouting_extra
+
+        # ip saddr 10.0.0.0/8 counter masquerade
         # ip6 saddr fdeb:52c8:d094:1000::/64 counter masquerade
       }
     '';
