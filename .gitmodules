@@ -1,0 +1,6 @@
+[submodule "secrets"]
+	path = secrets
+	url = git@github.com:Freifunk-Rhein-Neckar/nixos-secrets.git
+[submodule "modules/freifunk"]
+	path = modules/freifunk
+	url = git@github.com:nix-freifunk/nixos-freifunk.git
