@@ -41,6 +41,7 @@
 
   modules.freifunk.gateway = {
     enable = true;
+    meta.contact = "info@ffrn.de";
     yanic.enable = true;
     fastd = {
       peerDir = "/var/lib/fastd/peer_groups/nodes";

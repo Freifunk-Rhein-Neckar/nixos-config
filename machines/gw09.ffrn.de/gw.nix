@@ -175,6 +175,10 @@
   };
 
   modules.freifunk.gateway = {
+    meta = {
+      latitude = "50.478158406";
+      longitude = "12.335886955";
+    };
     vxlan = {
       local = "2a01:4f8:171:3242:0:8aff:fec9:1ef4";
       remoteLocals = [
