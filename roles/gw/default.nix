@@ -28,6 +28,17 @@
     tcpdump
   ];
 
+  networking.firewall.allowedTCPPorts = [ 80 ];
+  services.nginx.enable = true;
+  services.nginx.virtualHosts."default" = {
+    default = true;
+    rejectSSL = true;
+    locations."/" = {
+      return = "200 \"<!DOCTYPE html><html><head></head><body><h1>${config.networking.fqdnOrHostName}</h1></body></html>\"";
+      extraConfig = "default_type text/html;";
+    };
+  };
+
   modules.freifunk.gateway = {
     enable = true;
     yanic.enable = true;
