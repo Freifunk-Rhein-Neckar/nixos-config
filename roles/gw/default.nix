@@ -101,6 +101,21 @@
     family = "inet";
   };
 
+  services.freifunk.bird = {
+    extraConfig = ''
+      protocol direct d_domains {
+        interface "bat-dom*";
+        ipv4 {
+            import all;
+        };
+        ipv6 {
+            import all;
+        };
+      }
+    '';
+  };
+
+
   systemd.network.networks."10-mainif".networkConfig.VXLAN = config.modules.freifunk.gateway.vxlan.interfaceNames;
 
   services.fastd-peergroup-nodes = {
