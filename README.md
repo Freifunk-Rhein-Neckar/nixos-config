@@ -47,6 +47,8 @@ colmena apply boot
 colmena apply --on "gw01" boot
 ```
 
+The `--no-substitute` [parameter](https://colmena.cli.rs/unstable/reference/cli.html?highlight=no-substitute#colmena-apply) is quite usefull if the target node(s) is reachable by colmena but has no working internet connection to copy closures from public caches.
+
 
 ## Secrets
 
