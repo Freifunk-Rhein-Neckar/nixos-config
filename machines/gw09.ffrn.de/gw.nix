@@ -15,6 +15,7 @@
     routerId = "138.201.30.244";
     localAdresses = [
       "138.201.30.244"
+      "2a01:4f8:171:3242::ff1:9"
     ];
     extraConfig = ''
 
