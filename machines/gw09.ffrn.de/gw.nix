@@ -31,42 +31,6 @@
         2a01:4f8:171:fcfd::/64,     # ffrnix
         2a01:4f8:171:fcfc::/64      # twoix
       ];
-      
-      protocol radv radv_dom0 {
-        propagate routes no;
-
-        ipv6 {
-          table master6;
-          export all;
-          import none;
-        };
-
-        interface "bat-dom0" {
-          min delay 3;
-          max ra interval 60;
-          other config no;
-          solicited ra unicast yes;
-          prefix 2a01:4f8:171:fcff::/64 { };
-          prefix fdc3:67ce:cc7e:9001::/64 { };
-          rdnss {
-            ns fdc3:67ce:cc7e:53::a;
-            ns fdc3:67ce:cc7e:53::b;
-          };
-          dnssl {
-            domain "ffrn.de";
-            domain "freifunk-rhein-neckar.de";
-          };
-          # account here for the encapsulation overhead of batman-adv v15
-          link mtu 1280;
-
-          # custom option type 38 value hex:0e:10:20:01:06:7c:29:60:64:64:00:00:00:00;
-          # custom option type 38 value hex:0e:10:00:64:ff:9b:00:00:00:00:00:00:00:00;
-        };
-
-        prefix ::/0 {
-          skip;
-        };
-      }
 
       protocol kernel k_main4 {
         persist;
@@ -146,6 +110,7 @@
               addresses = [
                 "2a01:4f8:171:fcff::9"
               ];
+              announce = true;
             };
             "2a01:4f8:140:7700::/64" = {
               addresses = [

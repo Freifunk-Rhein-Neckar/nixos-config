@@ -48,6 +48,10 @@
       secretKeyIncludeFile = config.age.secrets."fastd-secret.conf".path;
       peerLimit = 100;
     };
+    dnsSearchDomain = [
+      "ffrn.de"
+      "freifunk-rhein-neckar.de"
+    ];
     domains = {
       dom0 = {
         names = {
@@ -61,6 +65,22 @@
           dhcpV4 = {
             enable = lib.mkDefault true;
             dnsServers = [ "10.95.255.53" "10.95.255.54" ];
+          };
+        };
+        ipv6 = {
+          dnsServers = [ "fdc3:67ce:cc7e:53::a" "fdc3:67ce:cc7e:53::b" ];
+          prefixes = {
+            "2a01:4f8:171:fcff::/64" = {
+              announce = lib.mkDefault false;
+            };
+            "2a01:4f8:140:7700::/64" = {
+              announce = lib.mkDefault false;
+            };
+            "2a01:4f8:160:9700::/64" = {
+              announce = lib.mkDefault false;
+            };
+            "fdc3:67ce:cc7e:9001::/64" = {
+            };
           };
         };
       };
