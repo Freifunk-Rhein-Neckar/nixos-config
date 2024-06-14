@@ -13,20 +13,6 @@ in
 
     deployment.targetHost = lib.mkDefault "${config.networking.fqdn}";
 
-    # This module will be imported by all hosts
-    environment.systemPackages = with pkgs; [
-      vim
-      wget
-      curl
-      htop
-      mtr
-      ethtool
-      tmux
-      tcpdump
-      dig
-      ncdu
-    ];
-
     imports = [
       (sources.agenix + "/modules/age.nix")
       ./roles/all

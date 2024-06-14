@@ -52,4 +52,17 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
 
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    curl
+    htop
+    mtr
+    ethtool
+    tmux
+    tcpdump
+    dig
+    ncdu
+  ];
+
 }
