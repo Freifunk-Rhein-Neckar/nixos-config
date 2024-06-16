@@ -1,5 +1,8 @@
 { name, nodes, config, pkgs, lib, ... }:
 {
+  imports = [
+    ./default.nix
+  ];
   
   networking.firewall.extraInputRules = ''
     iifname "enp1s0" ip6 saddr fe80::/64 ip6 daddr { ff02::5, ff02::6 } meta l4proto 89 counter accept comment "allow OSPV v3 in on enp1s0"

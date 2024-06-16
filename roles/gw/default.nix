@@ -3,6 +3,7 @@
 
   imports = [
     ../../modules/freifunk
+    ../../modules/ffrn-gateway.nix
   ];
 
   age.secrets."fastd-secret.conf" = {
@@ -37,6 +38,10 @@
       return = "200 \"<!DOCTYPE html><html><head></head><body><h1>${config.networking.fqdnOrHostName}</h1></body></html>\"";
       extraConfig = "default_type text/html;";
     };
+  };
+
+  modules.ffrn-gateway = {
+    enable = lib.mkDefault true;
   };
 
   modules.freifunk.gateway = {

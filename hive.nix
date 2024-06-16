@@ -20,9 +20,6 @@ in
   };
 
   "gw09" = { name, nodes, ... }:  {
-    imports = [ 
-      ./machines/gw09.ffrn.de
-      ./roles/gw
-    ];
+    imports = [ ./machines/gw09.ffrn.de ];
   };
 }
