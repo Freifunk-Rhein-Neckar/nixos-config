@@ -16,7 +16,7 @@
       terminal_input serial
       terminal_output serial
     ";
-    device = "/dev/sda";
+    device = lib.mkDefault "/dev/sda";
   };
 
   # Enable the OpenSSH daemon.

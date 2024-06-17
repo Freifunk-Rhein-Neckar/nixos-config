@@ -19,6 +19,10 @@ in
     ];
   };
 
+  "gw08" = { name, nodes, ... }:  {
+    imports = [ ./machines/gw08.ffrn.de ];
+  };
+
   "gw09" = { name, nodes, ... }:  {
     imports = [ ./machines/gw09.ffrn.de ];
   };
