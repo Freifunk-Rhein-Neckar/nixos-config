@@ -31,6 +31,12 @@ in
       }
     '';
 
+    networking.firewall.extraInputRules = ''
+      ip6 saddr 2a01:4f8:171:3242::/64 udp dport 4789 counter accept comment "accept vxlan from elsenz"
+      ip6 saddr 2a01:4f8:140:4093::/64 udp dport 4789 counter accept comment "accept vxlan from itter"
+      ip6 saddr 2a01:4f8:160:624c::/64 udp dport 4789 counter accept comment "accept vxlan from weschnitz"
+    '';
+
     services.freifunk.bird = {
       routerId = cfg.publicIPv4;
       localAdresses = [
