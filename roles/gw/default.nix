@@ -143,6 +143,8 @@
 
   systemd.network.networks."10-mainif".networkConfig.VXLAN = config.modules.freifunk.gateway.vxlan.interfaceNames;
 
+  programs.ssh.knownHosts."github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
+
   services.fastd-peergroup-nodes = {
     enable = true;
     reloadServices = map (service: "${service.unitName}.service") (builtins.attrValues config.services.fastd);
