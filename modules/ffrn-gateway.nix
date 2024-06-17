@@ -31,6 +31,8 @@ in
       }
     '';
 
+    systemd.network.networks."10-mainif".address = [ "${cfg.publicIPv6}" ];
+
     networking.firewall.extraInputRules = ''
       ip6 saddr 2a01:4f8:171:3242::/64 udp dport 4789 counter accept comment "accept vxlan from elsenz"
       ip6 saddr 2a01:4f8:140:4093::/64 udp dport 4789 counter accept comment "accept vxlan from itter"
