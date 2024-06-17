@@ -19,6 +19,26 @@ in
     ];
   };
 
+  "gw02" = { name, nodes, ... }:  {
+    imports = [ ./machines/gw02.ffrn.de ];
+  };
+
+  "gw03" = { name, nodes, ... }:  {
+    imports = [ ./machines/gw03.ffrn.de ];
+  };
+
+  "gw04" = { name, nodes, ... }:  {
+    imports = [ ./machines/gw04.ffrn.de ];
+  };
+
+  "gw05" = { name, nodes, ... }:  {
+    imports = [ ./machines/gw05.ffrn.de ];
+  };
+
+  "gw06" = { name, nodes, ... }:  {
+    imports = [ ./machines/gw06.ffrn.de ];
+  };
+
   "gw07" = { name, nodes, ... }:  {
     imports = [ ./machines/gw07.ffrn.de ];
   };

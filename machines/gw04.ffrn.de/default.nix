@@ -7,14 +7,17 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      # ./hardware-configuration.nix
+      ./hardware-configuration.nix
       ./gw.nix
     ];
 
   networking.hostName = "gw04";
   networking.domain = "ffrn.de";
 
-  # deployment.targetHost = "";
+  deployment.targetHost = "2a01:4f8:140:4093:0:5eff:fe82:f3e9";
+
+
+  boot.loader.grub.device = "/dev/vda";
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
