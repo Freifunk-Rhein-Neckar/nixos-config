@@ -53,6 +53,7 @@
       secretKeyIncludeFile = config.age.secrets."fastd-secret.conf".path;
       peerLimit = 100;
     };
+    dnsDomainName = "ffrn.de";
     dnsSearchDomain = [
       "ffrn.de"
       "freifunk-rhein-neckar.de"
