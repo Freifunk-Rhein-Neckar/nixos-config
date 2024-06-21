@@ -48,6 +48,7 @@
     enable = true;
     meta.contact = "info@ffrn.de";
     yanic.enable = true;
+    blockTCPPort25 = true;
     fastd = {
       peerDir = "/var/lib/fastd/peer_groups/nodes";
       secretKeyIncludeFile = config.age.secrets."fastd-secret.conf".path;
