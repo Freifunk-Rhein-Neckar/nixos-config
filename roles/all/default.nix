@@ -4,6 +4,7 @@
   imports = [
     ../../modules/time.nix
     ./prometheus-node-exporter.nix
+    ./nebula.nix
   ];
 
   boot.kernelParams = [ "console=ttyS0,115200n8" ];
