@@ -63,6 +63,7 @@
     tcpdump
     dig
     ncdu
+    iperf3
   ];
 
 }
