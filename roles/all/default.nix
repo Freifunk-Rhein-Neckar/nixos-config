@@ -61,7 +61,6 @@
     mtr
     ethtool
     tmux
-    tcpdump
     dig
     ncdu
     iperf3

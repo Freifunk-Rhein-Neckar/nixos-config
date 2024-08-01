@@ -4,6 +4,7 @@
   imports = [
     ../../modules/freifunk
     ../../modules/ffrn-gateway.nix
+    ./tcpdump.nix
   ];
 
   age.secrets."fastd-secret.conf" = {
@@ -26,7 +27,6 @@
     fastd
     jq
     batctl
-    tcpdump
   ];
 
   networking.firewall.allowedTCPPorts = [ 80 ];
