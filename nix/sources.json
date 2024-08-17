@@ -11,6 +11,18 @@
         "url": "https://github.com/ryantm/agenix/archive/f6291c5935fdc4e0bef208cfc0dcab7e3f7a1c41.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "niv-updater": {
+        "branch": "main",
+        "description": null,
+        "homepage": null,
+        "owner": "herbetom",
+        "repo": "niv-updater",
+        "rev": "596f53a3d70376d560b5bca6d0231e47863e58a8",
+        "sha256": "0plc26lm5rag46i45n7ald7rr7c1jxkj4hkcd5c6n8lwd5hqch0y",
+        "type": "tarball",
+        "url": "https://github.com/herbetom/niv-updater/archive/596f53a3d70376d560b5bca6d0231e47863e58a8.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixpkgs": {
         "branch": "nixos-24.05-small",
         "description": "Nix Packages collection",
