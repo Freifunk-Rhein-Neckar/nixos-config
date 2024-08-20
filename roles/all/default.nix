@@ -67,4 +67,12 @@
     iperf3
   ];
 
+  # automatically remove unused old derivations
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    randomizedDelaySec = "6h";
+    options = "--delete-older-than 21d";
+  };
+
 }
