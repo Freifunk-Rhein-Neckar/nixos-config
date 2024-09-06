@@ -50,4 +50,8 @@ in
   "gw09" = { name, nodes, ... }:  {
     imports = [ ./machines/gw09.ffrn.de ];
   };
+
+  "map2" = { name, nodes, ... }:  {
+    imports = [ ./machines/map2.ffrn.de ];
+  };
 }
