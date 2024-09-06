@@ -4,6 +4,7 @@
   imports = [
     (import (import ../../nix/sources.nix).nixos-freifunk)
     ../../modules/ffrn-gateway.nix
+    ./ripe-atlas-software-probe
   ];
 
   age.secrets."fastd-secret.conf" = {
