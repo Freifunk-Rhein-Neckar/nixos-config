@@ -2,7 +2,7 @@
 {
 
   imports = [
-    ../../roles/gw/hetzner-vm-itter.nix
+    ../../roles/gw/ffrn-hetzner-vm-itter.nix
   ];
 
   modules.ffrn-gateway = {
