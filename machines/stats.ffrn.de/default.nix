@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../roles/netcup-vm-aarch64.nix
+      ../../modules/prometheus/server.nix
     ];
 
   networking.hostName = "stats-new"; # Define your hostname.
