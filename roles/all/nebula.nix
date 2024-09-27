@@ -27,6 +27,7 @@ in {
 
   services.nebula.networks."ffrn" = {
     enable = true;
+    tun.device = "nebula.ffrn";
     ca = config.age.secrets."nebula-ca.crt".path;
     cert = config.age.secrets."nebula-host.crt".path;
     key = config.age.secrets."nebula-host.key".path;
@@ -62,6 +63,12 @@ in {
           host = "any";
           port = 5201;
           proto = "udp";
+        }
+        {
+          host = "any";
+          port = 9100;
+          proto = "tcp";
+          groups = [ "noc" "prometheus" ];
         }
         {
           host = "any";

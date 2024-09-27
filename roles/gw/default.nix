@@ -99,6 +99,9 @@
     firewallRules = ''
       ip6 saddr { 2a02:c207:3001:370::/64 } tcp dport ${toString config.services.prometheus.exporters.kea.port} counter accept comment "prometheus-kea-exporter: accept from stats.ffrn.de"
       ip saddr { 5.189.157.196/32 } tcp dport ${toString config.services.prometheus.exporters.kea.port} counter accept comment "prometheus-kea-exporter: accept from stats.ffrn.de"
+      ${ if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then ''
+        iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport ${toString config.services.prometheus.exporters.kea.port} counter accept comment "prometheus-kea-exporter: accept from nebula"
+      '' else ""}
     '';
   };
 
@@ -108,6 +111,9 @@
       chain input_extra {
         tcp dport ${toString config.services.fastd-exporter.port} ip saddr { 5.189.157.196/32 } counter accept comment "fastd-exporter: accept from stats.ffrn.de"
         tcp dport ${toString config.services.fastd-exporter.port} ip6 saddr { 2a02:c207:3001:370::/64 } counter accept comment "fastd-exporter: accept from stats.ffrn.de"
+        ${ if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then ''
+          iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport ${toString config.services.fastd-exporter.port} counter accept comment "fastd-exporter: accept from nebula"
+        '' else ""}
       }
     '';
   };
