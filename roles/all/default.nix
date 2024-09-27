@@ -3,7 +3,7 @@
 
   imports = [
     ../../modules/time.nix
-    ./prometheus-node-exporter.nix
+    ../../modules/prometheus/exporter/node.nix
     ./nebula.nix
   ];
 
