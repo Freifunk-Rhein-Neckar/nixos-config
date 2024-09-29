@@ -1,5 +1,9 @@
 { lib, pkgs, config, name, ... }:
 {
+  imports = [
+    ../acme.nix
+    ../nginx.nix
+  ];
 
   services.prometheus.alertmanager = {
     enable = true;
@@ -7,7 +11,7 @@
       "--cluster.listen-address=" # empty string disables HA mode
     ];
 
-    webExternalUrl = "http://alertmanager.int.ffrn.de/";
+    webExternalUrl = "https://alertmanager.int.ffrn.de/";
 
     environmentFile = config.age.secrets."alertmanager-secrets".path;
 
@@ -67,6 +71,23 @@
               priority: '{{ if eq .Status "firing" }}0{{ else }}-1{{ end }}'
     '';
 
+  };
+
+  services.nginx.virtualHosts."alertmanager.int.ffrn.de" = {
+    locations."/" = {
+      proxyPass = "http://[::1]:${builtins.toString config.services.prometheus.alertmanager.port}";
+    };
+    forceSSL = true;
+    useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
+  };
+
+  security.acme = {
+    certs."${config.networking.hostName}.${config.networking.domain}" = {
+      extraDomainNames = [
+        "alertmanager.int.ffrn.de"
+        "alertmanager.ffrn.de"
+      ];
+    };
   };
 
   services.nebula.networks."ffrn".firewall.inbound = if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then [

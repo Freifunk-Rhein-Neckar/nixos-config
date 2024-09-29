@@ -5,12 +5,14 @@
     ./exporter/blackbox.nix
     ./rules.nix
     ./alertmanager.nix
+    ../acme.nix
+    ../nginx.nix
   ];
 
   services.prometheus = {
     enable = true;
     listenAddress = "[::]";
-    webExternalUrl = "http://prometheus.int.ffrn.de/";
+    webExternalUrl = "https://prometheus.int.ffrn.de/";
     globalConfig = {
       scrape_interval = "15s";
       evaluation_interval = "15s";
@@ -34,6 +36,21 @@
     ];
   };
 
+  services.nginx.virtualHosts."prometheus.int.ffrn.de" = {
+    locations."/" = {
+      proxyPass = "http://[::1]:${builtins.toString config.services.prometheus.port}";
+    };
+    forceSSL = true;
+    useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
+  };
+
+  security.acme = {
+    certs."${config.networking.hostName}.${config.networking.domain}" = {
+      extraDomainNames = [
+        "prometheus.int.ffrn.de"
+        "prometheus.ffrn.de"
+      ];
+    };
   };
 
   services.prometheus.scrapeConfigs = [
