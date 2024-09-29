@@ -55,7 +55,7 @@ in
     imports = [ ./machines/map2.ffrn.de ];
   };
 
-  "stats" = { name, nodes, ... }:  {
-    imports = [ ./machines/stats.ffrn.de ];
+  "stats1" = { name, nodes, ... }:  {
+    imports = [ ./machines/stats1.ffrn.de ];
   };
 }

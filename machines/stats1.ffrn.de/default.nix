@@ -12,7 +12,7 @@
       ../../modules/prometheus/server.nix
     ];
 
-  networking.hostName = "stats-new"; # Define your hostname.
+  networking.hostName = "stats1"; # Define your hostname.
   networking.domain = "ffrn.de";
 
   deployment.buildOnTarget = true;
