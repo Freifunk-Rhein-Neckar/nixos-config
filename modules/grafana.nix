@@ -33,7 +33,7 @@
     ];
   };
 
-    services.grafana-image-renderer = {
+  services.grafana-image-renderer = {
     enable = true;
     provisionGrafana = true;
   };
@@ -43,7 +43,8 @@
   services.nginx.virtualHosts."stats.ffrn.de" = {
     serverAliases = [
       "stats.int.ffrn.de"
-      "s.ffrn.de"
+      "stats1.ffrn.de"
+      "stats1.int.ffrn.de"
     ];
     default = true;
     locations."/" = {
@@ -53,9 +54,18 @@
     useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
   };
 
+  services.nginx.virtualHosts."s.ffrn.de" = {
+    redirectCode = 308;
+    globalRedirect = "stats.ffrn.de";
+    forceSSL = true;
+    useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
+  };
+
   security.acme = {
     certs."${config.networking.hostName}.${config.networking.domain}" = {
       extraDomainNames = [
+        "stats1.int.ffrn.de"
+        "stats1.ffrn.de"
         "stats.int.ffrn.de"
         "stats.ffrn.de"
         "s.ffrn.de"
