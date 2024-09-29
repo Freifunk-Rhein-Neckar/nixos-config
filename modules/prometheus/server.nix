@@ -4,6 +4,7 @@
   imports = [
     ./exporter/blackbox.nix
     ./rules.nix
+    ./alertmanager.nix
   ];
 
   services.prometheus = {
@@ -15,6 +16,24 @@
       evaluation_interval = "15s";
     };
     retentionTime = "365d";
+
+    alertmanagers = [
+      {
+        scheme = "http";
+        path_prefix = "/";
+        static_configs = [ { targets = [ "alertmanager.int.ffrn.de:9093" ]; } ];
+
+        alert_relabel_configs = [
+          {
+            source_labels = [ "instance" ];
+            target_label = "instance";
+            regex = "(.+):\d+";
+          }
+        ];
+      }
+    ];
+  };
+
   };
 
   services.prometheus.scrapeConfigs = [
@@ -303,7 +322,6 @@
         replacement = "stats.int.ffrn.de:9115";
       }];
     }
-
 
   ];
 
