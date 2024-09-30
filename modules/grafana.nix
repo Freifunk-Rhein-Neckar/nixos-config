@@ -11,6 +11,8 @@
     settings = {
       "auth.anonymous".enabled = true;
       server.protocol = "socket";
+      rendering.callback_url = "https://stats1.ffrn.de";
+      rendering.server_url = "http://localhost:${builtins.toString config.services.grafana-image-renderer.settings.service.port}/render";
     };
     provision = {
       enable = true;
@@ -35,7 +37,6 @@
 
   services.grafana-image-renderer = {
     enable = true;
-    provisionGrafana = true;
   };
 
   systemd.services.nginx.serviceConfig.SupplementaryGroups = [ "grafana" ];
