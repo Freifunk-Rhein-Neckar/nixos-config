@@ -12,6 +12,7 @@
       ../../roles/netcup-vm-aarch64.nix
       ../../modules/prometheus/server.nix
       ../../modules/grafana.nix
+      ../../modules/influxdb.nix
     ];
 
   networking.hostName = "stats1"; # Define your hostname.

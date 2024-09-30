@@ -24,6 +24,13 @@
           type = "prometheus";
           editable = false;
         }
+        {
+          name = "influxdb.${builtins.toString config.networking.domain}";
+          url = "http://influxdb.int.ffrn.de:8086";
+          type = "influxdb";
+          editable = false;
+          jsonData.dbName = "ffrn";
+        }
       ];
     };
     declarativePlugins = with pkgs.grafanaPlugins; [
