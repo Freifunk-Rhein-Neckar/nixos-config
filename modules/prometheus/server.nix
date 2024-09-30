@@ -339,6 +339,14 @@
         replacement = "stats.int.ffrn.de:9115";
       }];
     }
+    {
+      job_name = "grafana-image-renderer";
+      static_configs = [{
+        targets = [
+          "stats.int.ffrn.de:8081"
+        ];
+      }];
+    }
 
   ];
 

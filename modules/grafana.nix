@@ -37,7 +37,32 @@
 
   services.grafana-image-renderer = {
     enable = true;
+    settings = {
+      service.metrics = {
+        enabled = true;
+        collectDefaultMetrics = true;
+        requestDurationBuckets = [1 5 7 9 11 13 15 20 30];
+      };
+      rendering = {
+        timingMetrics = true;
+      };
+    };
   };
+
+  services.nebula.networks."ffrn".firewall.inbound = if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then [
+    {
+      host = "any";
+      port = config.services.grafana-image-renderer.settings.service.port;
+      proto = "tcp";
+      groups = [ "noc" "prometheus" "grafana" ];
+    }
+  ] else [];
+
+  networking.firewall.extraInputRules = ''
+    ${ if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then ''
+      iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport ${builtins.toString config.services.grafana-image-renderer.settings.service.port} counter accept comment "grafana-image-renderer: accept from nebula"
+    '' else ""}
+  '';
 
   systemd.services.nginx.serviceConfig.SupplementaryGroups = [ "grafana" ];
 
