@@ -83,8 +83,31 @@
     locations."/" = {
       proxyPass = "http://unix:${config.services.grafana.settings.server.socket}";
     };
+    locations."/render/" = {
+      proxyPass = "http://unix:${config.services.grafana.settings.server.socket}";
+      extraConfig = ''
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+        add_header X-FFRN-LOCAL-Cache-Status $upstream_cache_status;
+        proxy_cache rendercache;
+        proxy_cache_valid 300s;
+        proxy_cache_lock on;
+        proxy_cache_lock_age 60s;
+        proxy_cache_lock_timeout 60s;
+        proxy_ignore_headers Cache-Control Expires;
+        proxy_cache_use_stale error timeout invalid_header updating http_500 http_502 http_503 http_504;
+      '';
+    };
     forceSSL = true;
     useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
+  };
+
+  services.nginx.proxyCachePath."rendercache" = {
+    enable = true;
+    maxSize = "1024M";
+    levels = "1:2";
+    keysZoneSize = "10m";
+    keysZoneName = "rendercache";
+    inactive = "10m";
   };
 
   services.nginx.virtualHosts."s.ffrn.de" = {
