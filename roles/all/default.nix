@@ -4,6 +4,7 @@
   imports = [
     ../../modules/time.nix
     ../../modules/prometheus/exporter/node.nix
+    ../../modules/borgbackup
     ./nebula.nix
   ];
 
