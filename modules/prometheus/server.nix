@@ -364,4 +364,9 @@
       iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport ${toString config.services.prometheus.port} counter accept comment "prometheus: accept from nebula"
     '' else ""}
   '';
+
+  services.borgbackup.jobs.rootBackup.exclude = [
+    "/var/lib/prometheus2/data/"
+  ];
+
 }
