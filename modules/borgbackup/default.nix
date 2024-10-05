@@ -60,5 +60,15 @@ in {
         startAt = "daily";
       };
     };
+
+    nixpkgs.overlays = [
+      (self: super: {
+        borgbackup = super.borgbackup.overridePythonAttrs (oldAttrs: {
+          patches = oldAttrs.patches or [] ++ [
+            ./dont-exit1-on-changed-files.patch
+          ];
+        });
+      })
+    ];
   };
 }
