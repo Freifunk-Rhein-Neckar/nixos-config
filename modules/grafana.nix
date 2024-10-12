@@ -37,7 +37,7 @@
       # marcusolsson-dynamictext-panel
       grafana-piechart-panel
       # blackmirror1-singlestat-math-panel
-      # marcusolsson-dynamictext-panel
+      marcusolsson-dynamictext-panel
       grafana-worldmap-panel
     ];
   };
