@@ -106,9 +106,6 @@ in {
   networking.firewall.interfaces."nebula.ffrn".allowedUDPPorts = [ 5201 ];
   networking.firewall.interfaces."nebula.ffrn".allowedTCPPorts = [ 5201 ];
 
-  networking.firewall.interfaces."enp1s0".allowedUDPPorts = [ 5201 ];
-  networking.firewall.interfaces."enp1s0".allowedTCPPorts = [ 5201 ];
-
 
   systemd.services."nebula@ffrn".serviceConfig = {
     ExecStartPre = "+${pkgs.bash}/bin/bash -c " + pkgs.writeScript "create-ssh-keys" ''
