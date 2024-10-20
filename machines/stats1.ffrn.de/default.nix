@@ -33,6 +33,9 @@
 
   modules.ffrn.borgbackup.enable = true;
 
+  # Netcup falsely reports their storage as hdd, well at least that is the theory
+  fileSystems."/".options = [ "ssd" ];
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
