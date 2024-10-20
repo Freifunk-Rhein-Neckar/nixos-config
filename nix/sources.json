@@ -29,10 +29,10 @@
         "homepage": "",
         "owner": "nix-freifunk",
         "repo": "nixos-freifunk",
-        "rev": "c119a5137b8afdc08b11b0f17c0987ce7ca8030d",
-        "sha256": "01wp0bypxa8sfg3snjr8rls7limghw0ybjm7xjs419wcixnmg9ak",
+        "rev": "7e5cb3f541c6ec8432d4912b79bd3ebaffc36ee2",
+        "sha256": "1kyhr2v29rjkjb2my2ma07xwnfxqinyfj243xj4r534kw6hn85bx",
         "type": "tarball",
-        "url": "https://github.com/nix-freifunk/nixos-freifunk/archive/c119a5137b8afdc08b11b0f17c0987ce7ca8030d.tar.gz",
+        "url": "https://github.com/nix-freifunk/nixos-freifunk/archive/7e5cb3f541c6ec8432d4912b79bd3ebaffc36ee2.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
