@@ -28,8 +28,6 @@
         skip_verify = false;
         from_address = "$__file{${config.age.secrets."smtp-from_address".path}}";
         from_name = "FFRN Grafana";
-
-        # "smtp-user" "smtp-host" "smtp-password" "smtp-from_address"
       };
     };
     provision = {
