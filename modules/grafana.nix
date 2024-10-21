@@ -9,8 +9,10 @@
   services.grafana = {
     enable = true;
     settings = {
-      "auth.anonymous".enabled = true;
-      server.protocol = "socket";
+      "auth.anonymous" = {
+        enabled = true;
+        org_name = "FFRN";
+      };
       rendering.callback_url = "https://stats1.ffrn.de";
       rendering.server_url = "http://localhost:${builtins.toString config.services.grafana-image-renderer.settings.service.port}/render";
     };
