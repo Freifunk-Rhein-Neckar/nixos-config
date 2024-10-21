@@ -13,8 +13,24 @@
         enabled = true;
         org_name = "FFRN";
       };
+      server = {
+        protocol = "socket";
+        root_url = "https://stats.ffrn.de";
+      };
       rendering.callback_url = "https://stats1.ffrn.de";
       rendering.server_url = "http://localhost:${builtins.toString config.services.grafana-image-renderer.settings.service.port}/render";
+
+      smtp = {
+        enabled = true;
+        host = "$__file{${config.age.secrets."smtp-host".path}}";
+        user = "$__file{${config.age.secrets."smtp-user".path}}";
+        password = "$__file{${config.age.secrets."smtp-password".path}}";
+        skip_verify = false;
+        from_address = "$__file{${config.age.secrets."smtp-from_address".path}}";
+        from_name = "FFRN Grafana";
+
+        # "smtp-user" "smtp-host" "smtp-password" "smtp-from_address"
+      };
     };
     provision = {
       enable = true;
@@ -130,5 +146,15 @@
       ];
     };
   };
+
+  age.secrets = lib.listToAttrs (map (name: {
+    name = name;
+    value = {
+      file = ../secrets/stats1/${name}.age;
+      mode = "0400";
+      owner = "grafana";
+      group = "grafana";
+    };
+  }) [ "smtp-user" "smtp-host" "smtp-password" "smtp-from_address" ] );
 
 }
