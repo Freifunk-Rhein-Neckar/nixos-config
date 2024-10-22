@@ -4,6 +4,7 @@
   imports = [
     ./acme.nix
     ./nginx.nix
+    ./go-neb.nix
   ];
 
   services.grafana = {

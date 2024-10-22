@@ -34,7 +34,8 @@
         # resend them.
         repeat_interval: 12h
 
-        receiver: pushover
+        # receiver: pushover
+        receiver: ffrn-mon-matrix
 
         routes:
           - match:
@@ -49,7 +50,7 @@
               severity: page
             receiver: pushover
             continue: true
-          # - receiver: ffrn-mon-matrix
+          - receiver: ffrn-mon-matrix
 
       inhibit_rules:
         - source_match:
@@ -69,6 +70,11 @@
             - user_key: "$PUSHOVER_USER_KEY_TOM"
               token: "$PUSHOVER_APP_TOKEN_TOM"
               priority: '{{ if eq .Status "firing" }}0{{ else }}-1{{ end }}'
+
+        - name: ffrn-mon-matrix
+          webhook_configs:
+          - url: '${config.services.go-neb.baseUrl}/services/hooks/Q2VtTG5qSkFGMkptbVFoc2NRS1RNVFRub3ZnUGpjVks1OTc0'
+            send_resolved: true
     '';
 
   };
