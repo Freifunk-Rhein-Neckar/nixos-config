@@ -4,6 +4,7 @@
   imports = [
     (import (import ../../nix/sources.nix).nixos-freifunk)
     ../../modules/ffrn-gateway.nix
+    ../../modules/prometheus/exporter/batman-adv.nix
   ];
 
   age.secrets."fastd-secret.conf" = {
