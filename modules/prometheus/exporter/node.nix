@@ -26,7 +26,6 @@
         "nfs"
         "nfsd"
         "sockstat"
-        "textfile"
         "timex"
         "vmstat"
         "xfs"
