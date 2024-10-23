@@ -66,7 +66,8 @@
                     {{- else -}}                             <font data-mx-color="#008000"><b>[RESOLVED]</b></font>
                     {{- end }} {{ index .Labels "alertname" -}}
                     {{- if index .Annotations "description" -}}: {{ index .Annotations "description" -}}{{- end -}}
-                    {{-  if .GeneratorURL }} (<a href="{{ .GeneratorURL }}">source</a>)<br/>{{- end }}
+                    {{- if .GeneratorURL }} (<a href="{{ .GeneratorURL }}">source</a>{{- end }}
+                    {{- if .SilenceURL }}, <a href="{{ .SilenceURL }}">silence</a>)<br/>{{- end }}
                   {{ end -}}'';
                 msg_type = "m.text";  # Must be either `m.text` or `m.notice`
               };
