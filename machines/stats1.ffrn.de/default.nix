@@ -13,6 +13,7 @@
       ../../modules/prometheus/server.nix
       ../../modules/grafana.nix
       ../../modules/influxdb.nix
+      ./vectortiles.nix
     ];
 
   networking.hostName = "stats1"; # Define your hostname.
