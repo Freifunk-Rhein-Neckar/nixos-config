@@ -41,11 +41,13 @@
         proxy_ignore_headers Set-Cookie;
         proxy_ignore_headers X-Accel-Expires Expires Cache-Control;
         expires 14d;
-        
       '';
     };
     locations."/assets/" = {
       alias = "/srv/versatiles/static/assets/";
+      extraConfig = ''
+        add_header access-control-allow-origin *;
+      '';
     };
     locations."/" = {
       proxyPass = "http://[::1]:8080";
