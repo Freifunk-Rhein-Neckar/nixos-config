@@ -78,7 +78,6 @@
           "resolver2.ffrn.de:9100"
           "map1.ffrn.de:9100"
           "meet.ffrn.de:9100"
-          "stats.ffrn.de:9100"
           "elsenz.ffrn.de:9100"
           "itter.ffrn.de:9100"
           "master.ffrn.de:9100"
