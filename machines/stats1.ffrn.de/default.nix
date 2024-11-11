@@ -14,6 +14,7 @@
       ../../modules/grafana.nix
       ../../modules/influxdb.nix
       ./vectortiles.nix
+      ./knot.nix
     ];
 
   networking.hostName = "stats1"; # Define your hostname.
