@@ -44,6 +44,19 @@
     tcp dport 443 counter accept comment "nginx: accept https"
   '';
 
+  virtualisation.docker.enable = true;
+  environment.systemPackages = with pkgs; [
+    docker-compose
+  ];
+  services.nginx.virtualHosts."netbox.ffrn.de" = {
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:8378";
+    };
+    forceSSL = true;
+    useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
+  };
+
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
