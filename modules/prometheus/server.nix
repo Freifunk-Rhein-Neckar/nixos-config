@@ -16,6 +16,7 @@
     globalConfig = {
       scrape_interval = "15s";
       evaluation_interval = "15s";
+      scrape_timeout = "12s";
     };
     retentionTime = "365d";
 
