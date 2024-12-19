@@ -114,6 +114,17 @@
         proxy_cache_use_stale error timeout invalid_header updating http_500 http_502 http_503 http_504;
       '';
     };
+    locations."=/metrics" = {
+      proxyPass = "http://unix:${config.services.grafana.settings.server.socket}";
+      extraConfig = ''
+        allow 192.168.100.0/24;     # nebula
+        allow 89.58.15.197/32;      # stats1.ffrn.de
+        allow 2a03:4000:60:11f::/64; # stats1.ffrn.de
+        allow 127.0.0.0/8;
+        allow ::1;
+        deny  all;
+      '';
+    };
     forceSSL = true;
     useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
   };
