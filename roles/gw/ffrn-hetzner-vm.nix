@@ -1,4 +1,7 @@
 { name, nodes, config, pkgs, lib, ... }:
+let
+  mainif = "${config.systemd.network.networks."10-mainif".matchConfig.Name}";
+in
 {
   imports = [
     ./default.nix
@@ -6,9 +9,12 @@
   ];
   
   networking.firewall.extraInputRules = ''
-    iifname "enp1s0" ip6 saddr fe80::/64 ip6 daddr { ff02::5, ff02::6 } meta l4proto 89 counter accept comment "allow OSPV v3 in on enp1s0"
+    iifname "${mainif}" ip6 saddr fe80::/64 ip6 daddr { ff02::5, ff02::6 } meta l4proto 89 counter accept comment "allow OSPV v3 in on ${mainif}"
   '';
 
+  networking.firewall.extraForwardRules = ''
+    oifname "bat-dom0" ip daddr 10.142.0.0/16 ip saddr 10.0.0.0/8 iifname "${mainif}" counter accept comment "allow from mainif to bat-dom0 (for example DNS Responses)"
+  '';
 
   services.freifunk.bird.extraConfig = ''
     protocol ospf v3 ffv4 {
@@ -31,7 +37,7 @@
         };
       };
       area 0 {
-        interface "enp1s0" {
+        interface "${mainif}" {
           type broadcast;     # Detected by default
           cost 10;            # Interface metric
           hello 5;            # Default hello perid 10 is too long
@@ -58,7 +64,7 @@
         };
       };
       area 0 {
-        interface "enp1s0" {
+        interface "${mainif}" {
           type broadcast;     # Detected by default
           cost 10;            # Interface metric
           hello 5;            # Default hello perid 10 is too long
