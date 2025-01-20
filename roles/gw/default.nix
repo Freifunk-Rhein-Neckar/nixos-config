@@ -2,7 +2,7 @@
 {
 
   imports = [
-    (import (import ../../nix/sources.nix).nixos-freifunk)
+    (import (import ../../npins).nix-freifunk)
     ../../modules/ffrn-gateway.nix
   ];
 

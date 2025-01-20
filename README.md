@@ -15,7 +15,7 @@ to be [installed](https://nixos.org/download/#download-nix-accordion).
 Clone this repo with it's submodules and enter the dir.
 
 Run `nix-shell`. This will give you an shell where all relevant packages (colmena,
-agenix, niv, ... ) are installed.
+agenix, npins, ... ) are installed.
 
 #### Build only
 
@@ -75,7 +75,7 @@ agenix -d gw01/fastd.age
 ## Update
 
 ```
-niv update nixpkgs
+npins-updater
 ```
 
 Ideally only commited and pushed changes are deployed.

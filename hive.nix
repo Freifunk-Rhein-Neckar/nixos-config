@@ -1,5 +1,5 @@
 let
-  sources = import ./nix/sources.nix;
+  sources = import ./npins;
   inherit (sources) nixpkgs;
   inherit (sources) nixpkgs-unstable;
   lib = import (nixpkgs + "/lib");
