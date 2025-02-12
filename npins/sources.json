@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "d892e289ca5a59e0febd326fe9787cbad94d32f7",
-      "url": "https://github.com/nix-freifunk/nix-freifunk/archive/d892e289ca5a59e0febd326fe9787cbad94d32f7.tar.gz",
-      "hash": "05f960jbqz97p43vqj678vbj1mgp78yqa8arrk12y1khpajgsw6n"
+      "revision": "e94ff6d1ca2e73087a43ec2a4a42315e6fc73def",
+      "url": "https://github.com/nix-freifunk/nix-freifunk/archive/e94ff6d1ca2e73087a43ec2a4a42315e6fc73def.tar.gz",
+      "hash": "0i5zdhccnxf7p0jk2a5d7sbq1v3wd3rmfm7ighl4fsyi688mbv3i"
     },
     "nixpkgs": {
       "type": "Git",
