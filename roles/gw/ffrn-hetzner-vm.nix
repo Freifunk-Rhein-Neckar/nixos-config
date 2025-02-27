@@ -32,6 +32,9 @@ in
             print "Info (Proto: ", proto, "): ", net, " allowed ospf export dummy0 ", bgp_path;
             accept;
           }
+          if proto ~ "bgp_424242*" then {
+            accept;
+          }
           print "Info (Proto: ", proto, "): ", net, " didn't pass filter ", bgp_path;
           reject;
         };
@@ -57,6 +60,9 @@ in
           }
           if proto = "d_dummy0" then {
             print "Info (Proto: ", proto, "): ", net, " allowed ospf export dummy0 ", bgp_path;
+            accept;
+          }
+          if proto ~ "bgp_424242*" then {
             accept;
           }
           print "Info (Proto: ", proto, "): ", net, " didn't pass filter ", bgp_path;

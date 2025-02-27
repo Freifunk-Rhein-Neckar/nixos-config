@@ -11,6 +11,8 @@ let
 
   mainif = "${config.systemd.network.networks."10-mainif".matchConfig.Name}";
 
+  filterForRFC4193 = lib.filter (item: lib.hasPrefix "fd" item);
+
 in
 {
   options.modules.ffrn-gateway = {
@@ -47,6 +49,12 @@ in
         cfg.publicIPv4
         cfg.publicIPv6
       ];
+      extraVariables = ''
+        define DN42_ip4 = [
+          10.0.0.0/8+,
+          172.16.0.0/12+
+        ];
+      '';
       extraConfig = ''
 
         define PEERING_NET4 = [
@@ -64,7 +72,11 @@ in
             table master4;
             import none;
             export filter {
-              if net !~ PEERING_NET4 then {
+              if source = RTS_DEVICE then reject;
+              if net ~ DN42_ip4 then {
+                krt_prefsrc = ${builtins.elemAt config.modules.freifunk.gateway.domains.dom0.ipv4.addresses 0};
+              }
+              else if net !~ PEERING_NET4 then {
                 krt_prefsrc = ${cfg.publicIPv4};
               }
               accept;
@@ -78,7 +90,11 @@ in
             table master6;
             import none;
             export filter {
-              if net !~ PEERING_NET6 then {
+              if source = RTS_DEVICE then reject;
+              if net ~ RFC4193 then {
+                krt_prefsrc = ${builtins.elemAt (filterForRFC4193 (config.modules.freifunk.gateway.domains.dom0.ipv6.addresses)) 0};
+              }
+              else if net !~ PEERING_NET6 then {
                 krt_prefsrc = ${cfg.publicIPv6};
                 accept;
               }

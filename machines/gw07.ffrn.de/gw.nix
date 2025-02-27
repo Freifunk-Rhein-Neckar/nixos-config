@@ -3,6 +3,7 @@
 
   imports = [
     ../../roles/gw/ffrn-hetzner-vm-itter.nix
+    ./dn42.nix
   ];
 
   modules.ffrn-gateway = {
