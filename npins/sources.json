@@ -48,9 +48,10 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "d9410c18ee4e6a8eb93bac6a1d5207f8350e767d",
-      "url": "https://github.com/andir/npins/archive/d9410c18ee4e6a8eb93bac6a1d5207f8350e767d.tar.gz",
-      "hash": "1pk59zk88x98xv5shy5mai7jgdmz7rhyfvxxcal9c4dr1hzcyp8l"
+      "revision": "6cc1930e703698487bd703258126435a536ca492",
+      "url": "https://github.com/andir/npins/archive/6cc1930e703698487bd703258126435a536ca492.tar.gz",
+      "hash": "1450ddp5gm3n5jvg64v9rc2jvf9za79fv4dmac5m8d47l0iblfcx",
+      "frozen": true
     },
     "npins-updater": {
       "type": "Git",
@@ -66,5 +67,5 @@
       "hash": "17fqlr0syg767q8slghnllqxxwfrjmar5yixcys2frkcj4574zgi"
     }
   },
-  "version": 4
+  "version": 5
 }
