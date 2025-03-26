@@ -206,7 +206,10 @@ in
           import keep filtered;
 
           import filter {
-            if net ~ [ fdc3:67ce:cc7e::/48+ ] then reject;
+            if net ~ [
+              fdc3:67ce:cc7e::/48+, # FFRN ULA Space
+              fd34:fe56:7891::/48+  # FFRN Management ULA Space
+            ] then reject;
 
             if !is_valid_network_v6() then {
               # print "[dn42_6] Invalid network: ", net;
