@@ -7,5 +7,6 @@ in pkgs.mkShell {
     colmena
     (callPackage "${sources.npins}" {})
     (callPackage "${sources.npins-updater}/pkgs/npins-updater.nix" {})
+    attic-client
   ];
 }

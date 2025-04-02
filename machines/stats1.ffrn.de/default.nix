@@ -15,6 +15,7 @@
       ../../modules/influxdb.nix
       ./vectortiles.nix
       ./knot.nix
+      ./attic.nix
     ];
 
   networking.hostName = "stats1"; # Define your hostname.
