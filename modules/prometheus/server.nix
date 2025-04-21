@@ -78,7 +78,6 @@
           "resolver1.ffrn.de:9100"
           "resolver2.ffrn.de:9100"
           "map1.ffrn.de:9100"
-          "meet.ffrn.de:9100"
           "elsenz.ffrn.de:9100"
           "itter.ffrn.de:9100"
           "master.ffrn.de:9100"
@@ -124,7 +123,6 @@
           "tools-itter.ffrn.de"
           "tickets.ffrn.de"
           "map1.ffrn.de"
-          "meet.ffrn.de"
 
           "elsenz.ffrn.de"
           "itter.ffrn.de"
@@ -194,7 +192,6 @@
           "resolver1.ffrn.de"
           "resolver2.ffrn.de"
           "map1.ffrn.de"
-          "meet.ffrn.de"
 
           "elsenz.ffrn.de"
           "itter.ffrn.de"
@@ -254,7 +251,6 @@
           "forum.ffrn.de"
           "map.ffrn.de"
           "tiles.ffrn.de"
-          "meet.ffrn.de"
           "stats.ffrn.de"
           "cloud.ffrn.de"
           "matrix.ffrn.de"
