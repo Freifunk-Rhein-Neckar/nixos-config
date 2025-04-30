@@ -100,6 +100,10 @@
     locations."/" = {
       proxyPass = "http://unix:${config.services.grafana.settings.server.socket}";
     };
+    locations."/api/live/" = {
+      proxyPass = "http://unix:${config.services.grafana.settings.server.socket}";
+      proxyWebsockets = true;
+    };
     locations."/render/" = {
       proxyPass = "http://unix:${config.services.grafana.settings.server.socket}";
       extraConfig = ''
