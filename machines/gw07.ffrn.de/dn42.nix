@@ -5,6 +5,8 @@
     ../../roles/dn42-AS64946.nix
   ];
 
+  services.bird.package = pkgs.bird2;
+
   services.freifunk.bird = {
     extraVariables = ''
       # define DN42_LOCAL_IP4 = ;
