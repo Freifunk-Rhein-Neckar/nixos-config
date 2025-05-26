@@ -182,7 +182,7 @@
           "gw08.ffrn.de"
           "gw09.ffrn.de"
           "map.ffrn.de"
-          "stats.ffrn.de"
+          #"stats.ffrn.de"
 
           "forum.ffrn.de"
           "tools-elsenz.ffrn.de"
