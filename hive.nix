@@ -22,42 +22,43 @@ in
 
   "gw02" = { name, nodes, ... }:  {
     imports = [ ./machines/gw02.ffrn.de ];
-    deployment.tags = [ "gw" ];
+    deployment.tags = [ "gw" "libvirt-vm" ];
   };
 
   "gw03" = { name, nodes, ... }:  {
     imports = [ ./machines/gw03.ffrn.de ];
-    deployment.tags = [ "gw" ];
+    deployment.tags = [ "gw" "libvirt-vm" ];
   };
 
   "gw04" = { name, nodes, ... }:  {
     imports = [ ./machines/gw04.ffrn.de ];
-    deployment.tags = [ "gw" ];
+    deployment.tags = [ "gw" "libvirt-vm" ];
   };
 
   "gw05" = { name, nodes, ... }:  {
     imports = [ ./machines/gw05.ffrn.de ];
-    deployment.tags = [ "gw" ];
+    deployment.tags = [ "gw" "libvirt-vm" ];
   };
 
   "gw06" = { name, nodes, ... }:  {
     imports = [ ./machines/gw06.ffrn.de ];
-    deployment.tags = [ "gw" ];
+    deployment.tags = [ "gw" "libvirt-vm" ];
   };
 
   "gw07" = { name, nodes, ... }:  {
     imports = [ ./machines/gw07.ffrn.de ];
-    deployment.tags = [ "gw" ];
+    deployment.tags = [ "gw" "libvirt-vm" ];
   };
 
   "gw08" = { name, nodes, ... }:  {
     imports = [ ./machines/gw08.ffrn.de ];
-    deployment.tags = [ "gw" ];
+    deployment.tags = [ "gw" "libvirt-vm" ];
   };
 
   "gw09" = { name, nodes, ... }:  {
     imports = [ ./machines/gw09.ffrn.de ];
-    deployment.tags = [ "gw" ];
+    deployment.tags = [ "gw" "libvirt-vm" ];
+  };
   };
 
   "map2" = { name, nodes, ... }:  {
