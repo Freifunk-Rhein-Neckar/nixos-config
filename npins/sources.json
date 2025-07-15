@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "4835b1dc898959d8547a871ef484930675cb47f1",
-      "url": "https://github.com/ryantm/agenix/archive/4835b1dc898959d8547a871ef484930675cb47f1.tar.gz",
-      "hash": "0ngkhf7qamibhbl9z1dryzscd36y4fz1m1h6fb2z6fylw0b8029p"
+      "revision": "531beac616433bac6f9e2a19feb8e99a22a66baf",
+      "url": "https://github.com/ryantm/agenix/archive/531beac616433bac6f9e2a19feb8e99a22a66baf.tar.gz",
+      "hash": "103slb8xy5sb68zxjjbb9d0svq8xz751a7yrg6vrz5rh4374bzgl"
     },
     "nix-freifunk": {
       "type": "Git",
