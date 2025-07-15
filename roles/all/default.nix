@@ -22,7 +22,8 @@
    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1Yd4udgMwa1eEc9A+xha0QImtxnKFNB7XUncfgd6MG root@master.ffrn.de"
   ];
 
-  networking.useNetworkd = true;
+  networking.useDHCP = false;
+  systemd.network.enable = true;
   networking.nftables.enable = true;
   networking.usePredictableInterfaceNames = true;
 
