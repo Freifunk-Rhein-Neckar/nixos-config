@@ -7,6 +7,7 @@ in
 {
   meta = {
     nixpkgs = import nixpkgs { };
+    allowApplyAll = false;
   };
 
   defaults = { pkgs, config, ... }: {
