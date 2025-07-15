@@ -13,6 +13,8 @@
     settings.PasswordAuthentication = false;
   };
 
+  networking.domain = lib.mkDefault "ffrn.de";
+
   users.users.root.openssh.authorizedKeys.keys = [
    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKdnwVGpMaBv5Bx2XuIvuBI+b4HNaPYcuPoGSzZi/Z5R ffrn@tom v1"
    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC3J4QmBoP+jGrGEPhqqIHpB/puZQp81djIO10PhG7CH jevermeister"
