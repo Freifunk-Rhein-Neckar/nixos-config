@@ -22,7 +22,7 @@ in
 
   "gw02" = { name, nodes, ... }:  {
     imports = [ ./machines/gw02.ffrn.de ];
-    deployment.tags = [ "gw" "libvirt-vm" ];
+    deployment.tags = [ "gw" "incus-vm" ];
   };
 
   "gw03" = { name, nodes, ... }:  {
@@ -32,7 +32,7 @@ in
 
   "gw04" = { name, nodes, ... }:  {
     imports = [ ./machines/gw04.ffrn.de ];
-    deployment.tags = [ "gw" "libvirt-vm" ];
+    deployment.tags = [ "gw" "incus-vm" ];
   };
 
   "gw05" = { name, nodes, ... }:  {
@@ -47,7 +47,7 @@ in
 
   "gw07" = { name, nodes, ... }:  {
     imports = [ ./machines/gw07.ffrn.de ];
-    deployment.tags = [ "gw" "libvirt-vm" ];
+    deployment.tags = [ "gw" "incus-vm" ];
   };
 
   "gw08" = { name, nodes, ... }:  {
