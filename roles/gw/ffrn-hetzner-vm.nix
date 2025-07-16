@@ -5,7 +5,6 @@ in
 {
   imports = [
     ./default.nix
-    ../ffrn-hetzner-vm.nix
   ];
   
   networking.firewall.extraInputRules = ''
