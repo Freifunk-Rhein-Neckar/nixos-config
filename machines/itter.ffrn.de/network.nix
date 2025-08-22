@@ -604,6 +604,7 @@
 
   networking.firewall.filterForward = false;
   networking.firewall.checkReversePath = false;
+  networking.firewall.logRefusedConnections = false;
 
   networking.nftables.tables.nixos-fw = {
     content = ''
