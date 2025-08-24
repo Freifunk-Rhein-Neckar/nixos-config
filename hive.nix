@@ -65,6 +65,11 @@ in
     deployment.tags = [ "vmhost" ];
   };
 
+  "weschnitz" = { name, nodes, ... }:  {
+    imports = [ ./machines/weschnitz.ffrn.de ];
+    deployment.tags = [ "vmhost" ];
+  };
+
   "map2" = { name, nodes, ... }:  {
     imports = [ ./machines/map2.ffrn.de ];
   };
