@@ -595,6 +595,66 @@
     ];
   };
 
+  systemd.network.netdevs."71-br-clffrn1" = {
+    netdevConfig = {
+      Name = "br-clffrn1";
+      Kind = "bridge";
+    };
+  };
+  systemd.network.netdevs."80-dummy-br-clffrn1" = {
+    netdevConfig = {
+      Name = "dum-br-clffrn1";
+      Kind = "dummy";
+    };
+  };
+
+  systemd.network.networks."80-dummy-br-clffrn1" = {
+    matchConfig.Name = config.systemd.network.netdevs."80-dummy-br-clffrn1".netdevConfig.Name;
+    networkConfig.Bridge = config.systemd.network.netdevs."71-br-clffrn1".netdevConfig.Name;
+  };
+
+  systemd.network.networks."71-br-clffrn1" = {
+    matchConfig = {
+      Name = "${config.systemd.network.netdevs."71-br-clffrn1".netdevConfig.Name}";
+    };
+    networkConfig = {
+      DHCP = "no";
+      IPv6AcceptRA = false;
+      LinkLocalAddressing = false;
+    };
+  };
+
+  systemd.network.netdevs."71-br-clffnix1" = {
+    netdevConfig = {
+      Name = "br-clffnix1";
+      Kind = "bridge";
+    };
+  };
+  systemd.network.netdevs."80-dummy-br-clffnix1" = {
+    netdevConfig = {
+      Name = "dum-br-clffnix1";
+      Kind = "dummy";
+    };
+  };
+
+  systemd.network.networks."80-dummy-br-clffnix1" = {
+    matchConfig.Name = config.systemd.network.netdevs."80-dummy-br-clffnix1".netdevConfig.Name;
+    networkConfig.Bridge = config.systemd.network.netdevs."71-br-clffnix1".netdevConfig.Name;
+  };
+
+  systemd.network.networks."71-br-clffnix1" = {
+    matchConfig = {
+      Name = "${config.systemd.network.netdevs."71-br-clffnix1".netdevConfig.Name}";
+    };
+    networkConfig = {
+      DHCP = "no";
+      IPv6AcceptRA = false;
+      LinkLocalAddressing = false;
+    };
+  };
+
+
+
   networking.firewall.interfaces."${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}".allowedUDPPorts = [ 67 ];
 
   networking.firewall.filterForward = false;
