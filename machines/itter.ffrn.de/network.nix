@@ -410,8 +410,6 @@
           #route 2a01:4f8:160:9700::/64 via "lo";
           route 2a01:4f8:160:97c0::/60 via 2a01:4f8:140:4093:5054:ff:fe02:e2a6; # gw-test02
 
-          route 2a01:4f8:160:624c:5054:ff:fe62:3d89/128 via 2a01:4f8:140:4093:5054:ff:fe62:3d89;
-
           ipv6 {
               import all;
               export none;
