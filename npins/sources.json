@@ -26,6 +26,19 @@
       "url": "https://github.com/nix-freifunk/nix-freifunk/archive/5b39ceb1b49ad1694c1ca53360ef99ef8df6812b.tar.gz",
       "hash": "1rjna4gsyvcdcmg3c0xqkylh8f48f1lrbbf1w237ymcdcndi3br3"
     },
+    "nixos-mailserver": {
+      "type": "Git",
+      "repository": {
+        "type": "GitLab",
+        "repo_path": "simple-nixos-mailserver/nixos-mailserver",
+        "server": "https://gitlab.com/"
+      },
+      "branch": "nixos-25.05",
+      "submodules": false,
+      "revision": "f5936247dbdb8501221978562ab0b302dd75456c",
+      "url": "https://gitlab.com/api/v4/projects/simple-nixos-mailserver%2Fnixos-mailserver/repository/archive.tar.gz?sha=f5936247dbdb8501221978562ab0b302dd75456c",
+      "hash": "1qn5fg0h62r82q7xw54ib9wcpflakix2db2mahbicx540562la1y"
+    },
     "nixpkgs": {
       "type": "Git",
       "repository": {

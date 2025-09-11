@@ -70,6 +70,10 @@ in
     deployment.tags = [ "vmhost" ];
   };
 
+  "mail" = { name, nodes, ... }:  {
+    imports = [ ./machines/mail.ffrn.de ];
+  };
+
   "map2" = { name, nodes, ... }:  {
     imports = [ ./machines/map2.ffrn.de ];
   };
