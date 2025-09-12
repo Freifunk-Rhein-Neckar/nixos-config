@@ -4,17 +4,19 @@ let
 
 in {
 
-  age.secrets."nebula-ca.crt" = {
-    file = ../../secrets/nebula-ca.crt.age;
-    mode = "0400";
-    owner = user;
+  deployment.keys."nebula-ca.crt" = {
+    destDir = "/etc/nebula";
+    keyFile = ../../secrets/nebula-ca.crt;
+    permissions = "0400";
+    user = user;
     group = user;
   };
 
-  age.secrets."nebula-host.crt" = {
-    file = ../../secrets/${name}/nebula-host.crt.age;
-    mode = "0400";
-    owner = user;
+  deployment.keys."nebula-host.crt" = {
+    destDir = "/etc/nebula";
+    keyFile = ../../secrets/${name}/nebula-host.crt;
+    permissions = "0400";
+    user = user;
     group = user;
   };
 
@@ -28,8 +30,8 @@ in {
   services.nebula.networks."ffrn" = {
     enable = true;
     tun.device = "nebula.ffrn";
-    ca = config.age.secrets."nebula-ca.crt".path;
-    cert = config.age.secrets."nebula-host.crt".path;
+    ca = config.deployment.keys."nebula-ca.crt".path;
+    cert = config.deployment.keys."nebula-host.crt".path;
     key = config.age.secrets."nebula-host.key".path;
     staticHostMap = {
       "192.168.100.1" = ["49.12.39.108:4242" "[2a01:4f8:c17:6b7f::1]:4242" ];
