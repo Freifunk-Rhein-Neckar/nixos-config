@@ -15,6 +15,8 @@
   networking.hostName = "itter"; # Define your hostname.
   networking.hostId = "08c2eb35";
 
+  boot.kernelParams = [ "zfs.zfs_arc_max=8589934592" ];
+
   modules.ffrn.borgbackup.enable = false;
 
   systemd.network.links."10-mainif" = {

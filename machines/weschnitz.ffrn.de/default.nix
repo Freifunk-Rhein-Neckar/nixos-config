@@ -13,6 +13,7 @@
   boot.supportedFilesystems = [ "zfs" ];
   boot.swraid.enable = true;
 
+  boot.kernelParams = [ "zfs.zfs_arc_max=8589934592" ];
 
   networking.hostName = "weschnitz"; # Define your hostname.
   networking.hostId = "312916c4";
