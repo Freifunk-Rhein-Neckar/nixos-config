@@ -456,7 +456,7 @@
             }
             {
               alert = "HostPhysicalComponentTooHot";
-              expr = "node_hwmon_temp_celsius{instance!~\"itter.*\"} > 75";
+              expr = "node_hwmon_temp_celsius{instance!~\"(itter|weschnitz).*\"} > 75";
               for = "2m";
               labels = {
                 severity = "warning";
@@ -469,7 +469,7 @@
             }
             {
               alert = "HostPhysicalComponentTooHotRyzen";
-              expr = "node_hwmon_temp_celsius{instance=~\"itter.*\",sensor!~\"temp[3|4|6]\"} > 75";
+              expr = "node_hwmon_temp_celsius{instance=~\"(itter|weschnitz).*\",sensor!~\"temp[3|4|6]\"} > 75";
               for = "2m";
               labels = {
                 severity = "warning";
