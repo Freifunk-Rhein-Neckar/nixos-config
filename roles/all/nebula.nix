@@ -120,7 +120,10 @@ in {
       ${pkgs.coreutils}/bin/chown ${user} $FILE
     '';
     User = user;
-    ReadOnlyPaths = [ "/etc/ssh/nebula_host_ed25519_key" ];
+    ReadOnlyPaths = [
+      "/etc/ssh/nebula_host_ed25519_key"
+      "/etc/nebula/"
+    ];
   };
 
 }
