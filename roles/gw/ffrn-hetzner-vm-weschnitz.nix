@@ -2,7 +2,7 @@
 {
   imports = [
     ./ffrn-hetzner-vm.nix
-    ../ffrn-hetzner-vm.nix
+    ../ffrn-hetzner-vm-incus.nix
   ];
 
   modules.freifunk.gateway.domains = {
