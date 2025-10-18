@@ -40,10 +40,10 @@ in
     deployment.tags = [ "gw" "libvirt-vm" ];
   };
 
-  "gw06" = { name, nodes, ... }:  {
-    imports = [ ./machines/gw06.ffrn.de ];
-    deployment.tags = [ "gw" "libvirt-vm" ];
-  };
+  #"gw06" = { name, nodes, ... }:  {
+  #  imports = [ ./machines/gw06.ffrn.de ];
+  #  deployment.tags = [ "gw" "libvirt-vm" ];
+  #};
 
   "gw07" = { name, nodes, ... }:  {
     imports = [ ./machines/gw07.ffrn.de ];
