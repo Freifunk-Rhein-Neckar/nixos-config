@@ -129,9 +129,6 @@
           "weschnitz.ffrn.de"
 
           "master.ffrn.de"
-
-          "uplink.ebert-park-hotel.weinheim.ffrn.de"
-
         ];
       }];
       relabel_configs = [{
