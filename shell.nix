@@ -4,7 +4,7 @@ let
 in pkgs.mkShell {
   buildInputs = with pkgs; [
     (callPackage "${sources.agenix}/pkgs/agenix.nix" {})
-    colmena
+    (callPackage "${sources.colmena}/package.nix" {})
     (callPackage "${sources.npins}" {})
     (callPackage "${sources.npins-updater}/pkgs/npins-updater.nix" {})
     attic-client

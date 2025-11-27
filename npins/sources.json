@@ -13,6 +13,19 @@
       "url": "https://github.com/ryantm/agenix/archive/9ba0d85de3eaa7afeab493fed622008b6e4924f5.tar.gz",
       "hash": "1pkgdarjb2k7chs93s5wnbsnmqbhlbidipa6ncxr3yhr7sx5dhwn"
     },
+    "colmena": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "zhaofengli",
+        "repo": "colmena"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "349b035a5027f23d88eeb3bc41085d7ee29f18ed",
+      "url": "https://github.com/zhaofengli/colmena/archive/349b035a5027f23d88eeb3bc41085d7ee29f18ed.tar.gz",
+      "hash": "1x7wpj8cy6h7x0qygqa0i6qapw2flffcmq2m2li4ll7p4ggb4ms1"
+    },
     "nix-freifunk": {
       "type": "Git",
       "repository": {
