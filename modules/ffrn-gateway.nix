@@ -118,7 +118,7 @@ in
           "2a01:4f8:140:4093::ff2:7"              # gw07.ffrn.de
           "2a01:4f8:160:624c::ff3:8"              # gw08.ffrn.de
           "2a01:4f8:171:3242::ff1:9"              # gw09.ffrn.de
-          "2a01:4f8:160:624c:5054:ff:fed1:ebc5"   # map1.ffrn.de
+          "2a01:4f8:140:4093:5054:ff:fed1:ebc5"   # map1.ffrn.de
           "2a01:4f8:160:624c:5054:ff:fe37:2749"   # resolver1.ffrn.de
           "2a01:4f8:140:4093:0:c0ff:fea8:7b21"    # resolver2.ffrn.de
           "2a01:4f8:160:624c:5054:ff:fe62:3d89"   # unifi.ffrn.de
