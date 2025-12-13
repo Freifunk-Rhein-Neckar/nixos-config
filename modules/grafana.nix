@@ -1,5 +1,7 @@
 { config, pkgs, lib, ... }:
-{
+let
+ grafana-image-renderer-port = 8081;
+in {
 
   imports = [
     ./acme.nix
@@ -19,7 +21,7 @@
         root_url = "https://stats.ffrn.de";
       };
       rendering.callback_url = "https://stats1.ffrn.de";
-      rendering.server_url = "http://localhost:${builtins.toString config.services.grafana-image-renderer.settings.service.port}/render";
+      rendering.server_url = "http://localhost:${builtins.toString grafana-image-renderer-port}/render";
 
       smtp = {
         enabled = true;
@@ -62,21 +64,14 @@
   services.grafana-image-renderer = {
     enable = true;
     settings = {
-      service.metrics = {
-        enabled = true;
-        collectDefaultMetrics = true;
-        requestDurationBuckets = [1 5 7 9 11 13 15 20 30];
-      };
-      rendering = {
-        timingMetrics = true;
-      };
+      server.addr = "[::]:8081";
     };
   };
 
   services.nebula.networks."ffrn".firewall.inbound = if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then [
     {
       host = "any";
-      port = config.services.grafana-image-renderer.settings.service.port;
+      port = grafana-image-renderer-port;
       proto = "tcp";
       groups = [ "noc" "prometheus" "grafana" ];
     }
@@ -84,7 +79,7 @@
 
   networking.firewall.extraInputRules = ''
     ${ if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then ''
-      iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport ${builtins.toString config.services.grafana-image-renderer.settings.service.port} counter accept comment "grafana-image-renderer: accept from nebula"
+      iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport ${builtins.toString grafana-image-renderer-port} counter accept comment "grafana-image-renderer: accept from nebula"
     '' else ""}
   '';
 

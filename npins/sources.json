@@ -46,25 +46,11 @@
         "owner": "NixOS",
         "repo": "nixpkgs"
       },
-      "branch": "nixos-25.05",
+      "branch": "nixos-25.11",
       "submodules": false,
-      "revision": "1c8ba8d3f7634acac4a2094eef7c32ad9106532c",
-      "url": "https://github.com/NixOS/nixpkgs/archive/1c8ba8d3f7634acac4a2094eef7c32ad9106532c.tar.gz",
-      "hash": "0kal9wdvh0f9kcgh0ya1dpiir9331ykmkvsdh6a37lq77ln6m3vm"
-    },
-    "npins": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "andir",
-        "repo": "npins"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "6cc1930e703698487bd703258126435a536ca492",
-      "url": "https://github.com/andir/npins/archive/6cc1930e703698487bd703258126435a536ca492.tar.gz",
-      "hash": "1450ddp5gm3n5jvg64v9rc2jvf9za79fv4dmac5m8d47l0iblfcx",
-      "frozen": true
+      "revision": "09eb77e94fa25202af8f3e81ddc7353d9970ac1b",
+      "url": "https://github.com/NixOS/nixpkgs/archive/09eb77e94fa25202af8f3e81ddc7353d9970ac1b.tar.gz",
+      "hash": "02hdh4r0cc5h78cmymndb8clfhkn6phbrkrv6s8kvyfspqwzj84r"
     },
     "npins-updater": {
       "type": "Git",
