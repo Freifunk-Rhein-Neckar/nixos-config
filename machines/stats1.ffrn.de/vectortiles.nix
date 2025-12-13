@@ -60,7 +60,6 @@
     useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
   };
 
-  services.nginx.package = pkgs.nginxQuic;
   networking.firewall.extraInputRules = ''
     udp dport 443 counter accept comment "nginx: accept quic"
   '';
