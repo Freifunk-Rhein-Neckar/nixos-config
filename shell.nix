@@ -5,7 +5,7 @@ in pkgs.mkShell {
   buildInputs = with pkgs; [
     (callPackage "${sources.agenix}/pkgs/agenix.nix" {})
     (callPackage "${sources.colmena}/package.nix" {})
-    (callPackage "${sources.npins}" {})
+    npins
     (callPackage "${sources.npins-updater}/pkgs/npins-updater.nix" {})
     attic-client
     nebula
