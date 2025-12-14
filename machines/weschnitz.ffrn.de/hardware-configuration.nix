@@ -24,6 +24,12 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
+  fileSystems."/boot2" =
+    { device = "/dev/disk/by-uuid/1209-0F30";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/8f459ded-b23c-402a-b345-dbd94c31a6ec"; }
     ];
