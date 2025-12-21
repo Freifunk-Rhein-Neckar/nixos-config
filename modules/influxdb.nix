@@ -5,6 +5,12 @@
     enable = true;
   };
 
+  systemd.services.influxdb = {
+    serviceConfig = {
+      TimeoutStartSec = "10min";
+    };
+  };
+
   services.nebula.networks."ffrn".firewall.inbound = if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then [
     {
       host = "any";
