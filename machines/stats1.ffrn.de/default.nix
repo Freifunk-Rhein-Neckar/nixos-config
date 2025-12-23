@@ -13,6 +13,7 @@
       ../../modules/prometheus/server.nix
       ../../modules/grafana.nix
       ../../modules/influxdb.nix
+      ../../modules/nebula/lighthouse.nix
       ./vectortiles.nix
       ./knot.nix
       ./attic.nix
