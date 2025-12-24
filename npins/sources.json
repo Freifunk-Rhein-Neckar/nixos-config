@@ -26,6 +26,19 @@
       "url": "https://github.com/zhaofengli/colmena/archive/349b035a5027f23d88eeb3bc41085d7ee29f18ed.tar.gz",
       "hash": "1x7wpj8cy6h7x0qygqa0i6qapw2flffcmq2m2li4ll7p4ggb4ms1"
     },
+    "nebula-cert-generator": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "herbetom",
+        "repo": "nebula-cert-generator"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "c929028631529b7a532fd2e8a4ff488b1868ae14",
+      "url": "https://github.com/herbetom/nebula-cert-generator/archive/c929028631529b7a532fd2e8a4ff488b1868ae14.tar.gz",
+      "hash": "1ncjzwv725glv9pi2d4vqwwh3wqxnz5x36h130y7ihada53sm64q"
+    },
     "nix-freifunk": {
       "type": "Git",
       "repository": {

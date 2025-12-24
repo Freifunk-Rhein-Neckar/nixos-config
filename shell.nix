@@ -9,5 +9,6 @@ in pkgs.mkShell {
     (callPackage "${sources.npins-updater}/pkgs/npins-updater.nix" {})
     attic-client
     nebula
+    (callPackage "${sources.nebula-cert-generator}" {})
   ];
 }
