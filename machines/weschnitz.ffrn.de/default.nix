@@ -13,6 +13,9 @@
   boot.supportedFilesystems = [ "zfs" ];
   boot.swraid.enable = true;
 
+  # remove warning about unset mail - https://github.com/NixOS/nixpkgs/pull/273308
+  boot.swraid.mdadmConf = "PROGRAM ${pkgs.coreutils}/bin/true";
+
   boot.kernelParams = [ "zfs.zfs_arc_max=8589934592" ];
 
   networking.hostName = "weschnitz"; # Define your hostname.
