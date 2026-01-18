@@ -3,11 +3,6 @@
 
   services.influxdb = {
     enable = true;
-    extraConfig = {
-      cluster = {
-        query-timeout = "2m";
-      };
-    };
   };
 
   systemd.services.influxdb = {
