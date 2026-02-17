@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       ./network
       ./incus.nix
+      ../../roles/ffrn-hetzner-dedicated-server.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
