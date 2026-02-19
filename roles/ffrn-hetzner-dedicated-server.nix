@@ -1,7 +1,14 @@
 { config, lib, ... }:
 let
+
   mainifname = config.systemd.network.links."10-mainif".linkConfig.Name;
+
 in {
+
+  imports = [
+    ../modules/chrony.nix
+  ];
+
   networking.firewall.extraForwardRules = lib.mkOrder 10 ''
     # drop a bunch of ranges which will only result in Abuse Notifications
     oifname "${mainifname}" ip daddr 0.0.0.0/8 counter drop comment "RFC 1122 'this' network"
@@ -26,4 +33,5 @@ in {
     oifname "${mainifname}" ip6 daddr fc00::/7 counter drop comment "RFC 4193 Unique Local Unicast"
     oifname "${mainifname}" ip6 daddr 64:ff9b::/96 counter drop comment "RFC 6052 NAT64"
   '';
+
 }
