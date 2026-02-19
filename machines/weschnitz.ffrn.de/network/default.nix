@@ -476,6 +476,12 @@
       {
         Address = "192.168.124.1/24";
       }
+      {
+        # Duplicate to mainif. Neccsesary so that the host addr is reachable from br-vm
+        Address = "2a01:4f8:160:624c::2/64";
+        PreferredLifetime = 0;
+        Scope = "link";
+      }
     ];
     networkConfig = {
       EmitLLDP = true;
@@ -489,7 +495,9 @@
       {
         Prefix = "2a01:4f8:160:624c::/64";
         Assign = true;
-        Token = "::3";
+        Token = [
+          "::3"
+        ];
       }
     ];
     dhcpServerConfig = {
