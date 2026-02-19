@@ -17,6 +17,8 @@ jobs:
         # required
         app-id: ${{ vars.APP_ID }}
         private-key: ${{ secrets.PRIVATE_KEY }}
+        repositories: |
+          nixos-secrets
 
     - uses: actions/checkout@v6
       with:
