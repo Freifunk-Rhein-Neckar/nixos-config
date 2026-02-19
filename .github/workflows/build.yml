@@ -30,4 +30,4 @@ jobs:
       run: nix-shell --run "echo \"success\""
 
     - name: colmena build
-      run: nix-shell --run "colmena build -v"
+      run: nix-shell --run "colmena build -v --no-build-on-target"
