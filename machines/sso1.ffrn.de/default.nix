@@ -7,6 +7,7 @@
 {
   imports = [
     ../../roles/ffrn-hetzner-vm-incus.nix
+    ../../modules/kanidm.nix
   ];
 
   networking.hostName = "sso1";
