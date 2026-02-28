@@ -74,6 +74,10 @@ in
   #  imports = [ ./machines/map2.ffrn.de ];
   #};
 
+  "sso1" = { name, nodes, ... }:  {
+    imports = [ ./machines/sso1.ffrn.de ];
+  };
+
   "stats1" = { name, nodes, ... }:  {
     imports = [ ./machines/stats1.ffrn.de ];
   };
