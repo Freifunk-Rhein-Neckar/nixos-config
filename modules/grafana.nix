@@ -32,6 +32,26 @@ in {
         from_address = "$__file{${config.age.secrets."smtp-from_address".path}}";
         from_name = "FFRN Grafana";
       };
+
+      "auth.generic_oauth" = {
+        enabled = true;
+        name = "idm.ffrn.de";
+        client_id = "grafana";
+        client_secret = "$__file{${config.age.secrets."grafana-oauth-client-secret".path}}";
+        auth_url = "https://idm.ffrn.de/ui/oauth2";
+        token_url = "https://idm.ffrn.de/oauth2/token";
+        api_url = "https://idm.ffrn.de/oauth2/openid/grafana/userinfo";
+        login_attribute_path = "preferred_username";
+        scopes = "openid email profile groups";
+        use_pkce = true;
+        use_refresh_token = true;
+        allow_sign_up = true;
+        allow_assign_grafana_admin = true;
+        role_attribute_path = "contains(grafana_role[*], 'GrafanaAdmin') && 'GrafanaAdmin' || contains(grafana_role[*], 'Admin') && 'Admin' || contains(grafana_role[*], 'Editor') && 'Editor' || 'Viewer'";
+        groups_attribute_path = "groups";
+        auto_login = false;
+      };
+
     };
     provision = {
       enable = true;
@@ -164,6 +184,6 @@ in {
       owner = "grafana";
       group = "grafana";
     };
-  }) [ "smtp-user" "smtp-host" "smtp-password" "smtp-from_address" ] );
+  }) [ "smtp-user" "smtp-host" "smtp-password" "smtp-from_address" "grafana-oauth-client-secret" ] );
 
 }
