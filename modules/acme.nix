@@ -14,6 +14,11 @@
       email = "certificates@ffrn.de";
       dnsProvider = "rfc2136";
       credentialsFile = config.age.secrets."acme".path;
+
+      # default to shortlived profile
+      profile = "shortlived";
+      validMinDays = 3;
+      renewInterval = "3/6:00:00";
     };
     acceptTerms = true;
   };
