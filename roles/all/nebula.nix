@@ -114,21 +114,30 @@ in {
   networking.firewall.interfaces."nebula.ffrn".allowedTCPPorts = [ 5201 ];
 
 
-  systemd.services."nebula@ffrn".serviceConfig = {
-    ExecStartPre = "+${pkgs.bash}/bin/bash -c " + pkgs.writeScript "create-ssh-keys" ''
-      FILE="/etc/ssh/nebula_host_ed25519_key"
+  systemd.services."nebula@ffrn" = {
+    serviceConfig = {
+      ExecStartPre = "+${pkgs.bash}/bin/bash -c " + pkgs.writeScript "create-ssh-keys" ''
+        FILE="/etc/ssh/nebula_host_ed25519_key"
 
-      if [ ! -f "$FILE" ]; then
-        ${pkgs.openssh}/bin/ssh-keygen -t ed25519 -f $FILE -N "" < /dev/null
-      fi
+        if [ ! -f "$FILE" ]; then
+          ${pkgs.openssh}/bin/ssh-keygen -t ed25519 -f $FILE -N "" < /dev/null
+        fi
 
-      ${pkgs.coreutils}/bin/chown ${user} $FILE
-    '';
-    User = user;
-    ReadOnlyPaths = [
-      "/etc/ssh/nebula_host_ed25519_key"
-      "/etc/nebula/"
+        ${pkgs.coreutils}/bin/chown ${user} $FILE
+      '';
+      User = user;
+      ReadOnlyPaths = [
+        "/etc/ssh/nebula_host_ed25519_key"
+        "/etc/nebula/"
+      ];
+    };
+    after = [
+      "nebula-host.crt-key.service"
+      "nebula-ca.crt-key.service"
+    ];
+    wants = [
+      "nebula-host.crt-key.service"
+      "nebula-ca.crt-key.service"
     ];
   };
-
 }
