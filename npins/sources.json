@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "c929028631529b7a532fd2e8a4ff488b1868ae14",
-      "url": "https://github.com/herbetom/nebula-cert-generator/archive/c929028631529b7a532fd2e8a4ff488b1868ae14.tar.gz",
-      "hash": "1ncjzwv725glv9pi2d4vqwwh3wqxnz5x36h130y7ihada53sm64q"
+      "revision": "1cdfd3b375300f70c086431120350a6241c2bc1a",
+      "url": "https://github.com/herbetom/nebula-cert-generator/archive/1cdfd3b375300f70c086431120350a6241c2bc1a.tar.gz",
+      "hash": "19j9iadp1drmjrnwqdx5v7d9k6r2k6ngk97khla8crajaf5gk5ww"
     },
     "nix-freifunk": {
       "type": "Git",
