@@ -20,6 +20,10 @@ in
     ];
   };
 
+  "cloud1" = { name, nodes, ... }:  {
+    imports = [ ./machines/cloud1.ffrn.de ];
+  };
+
   "gw02" = { name, nodes, ... }:  {
     imports = [ ./machines/gw02.ffrn.de ];
     deployment.tags = [ "gw" "incus-vm" ];
