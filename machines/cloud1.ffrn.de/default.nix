@@ -7,13 +7,13 @@
 {
   imports = [
     ../../roles/ffrn-hetzner-vm-incus.nix
-    # ../../modules/nextcloud.nix
+    ../../modules/nextcloud.nix
+    ../../modules/garage.nix
   ];
 
   networking.hostName = "cloud1";
-  networking.domain = "ffrn.de";
 
-  deployment.targetHost = "2a01:4f8:160:624c:1266:6aff:fef1:2a32";
+  # deployment.targetHost = "2a01:4f8:160:624c:1266:6aff:fef1:2a32";
 
   system.stateVersion = "25.11";
 }
