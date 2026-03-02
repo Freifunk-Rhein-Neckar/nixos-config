@@ -17,6 +17,7 @@
       ./vectortiles.nix
       ./knot.nix
       ./attic.nix
+      ../../modules/garage.nix
     ];
 
   networking.hostName = "stats1"; # Define your hostname.

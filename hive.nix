@@ -24,6 +24,14 @@ in
     imports = [ ./machines/cloud1.ffrn.de ];
   };
 
+  "garage1" = { name, nodes, ... }:  {
+    imports = [ ./machines/garage1.ffrn.de ];
+  };
+
+  "garage2" = { name, nodes, ... }:  {
+    imports = [ ./machines/garage2.ffrn.de ];
+  };
+
   "gw02" = { name, nodes, ... }:  {
     imports = [ ./machines/gw02.ffrn.de ];
     deployment.tags = [ "gw" "incus-vm" ];
