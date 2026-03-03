@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 let
 
   mainifname = config.systemd.network.links."10-mainif".linkConfig.Name;
@@ -33,5 +33,56 @@ in {
     oifname "${mainifname}" ip6 daddr fc00::/7 counter drop comment "RFC 4193 Unique Local Unicast"
     oifname "${mainifname}" ip6 daddr 64:ff9b::/96 counter drop comment "RFC 6052 NAT64"
   '';
+
+  systemd.services.sync-boot-mirror = {
+    description = "Sync /boot to /boot2";
+    after = [ "local-fs.target" ];
+    # Ensures the service finishes before the system can shut down
+    before = [ "shutdown.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStartPre = "${pkgs.coreutils}/bin/sleep 1";
+      RemainAfterExit = false;
+      TimeoutStopSec = "infinity";
+    };
+    script = ''
+      BOOT_DIRS="/boot /boot2"
+
+      # Check directories exist
+      for dir in $BOOT_DIRS; do
+        if [ ! -d "$dir" ]; then
+          >&2 echo "Error: $dir does not exist or is not mounted!"
+          exit 1
+        fi
+      done
+
+      # Check both are mountpoints
+      for dir in $BOOT_DIRS; do
+        if ! ${pkgs.util-linux}/bin/mountpoint -q "$dir"; then
+          >&2 echo "Error: $dir is not a mountpoint!"
+          exit 1
+        fi
+      done
+
+      # Run rsync with shutdown inhibition
+      ${pkgs.systemd}/bin/systemd-inhibit \
+        --what=shutdown \
+        --who="sync-boot-mirror" \
+        --why="Syncing /boot to /boot2" \
+        ${pkgs.rsync}/bin/rsync -a --delete /boot/ /boot2/ -v -i
+    '';
+  };
+
+  systemd.paths.sync-boot-mirror = {
+    description = "Watch for new boot generations as well as changed default versions";
+    pathConfig = {
+      PathChanged = [
+        "/boot/loader/entries/" # Sync all generational changes
+        "/boot/loader/loader.conf" # Sync if default changes
+      ];
+      Unit = "sync-boot-mirror.service";
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
 
 }
