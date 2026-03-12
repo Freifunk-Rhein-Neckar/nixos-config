@@ -61,7 +61,7 @@
   fileSystems."/etc/nixos" = {
     device = "tmpfs";
     fsType = "tmpfs";
-    options = [ "size=1M,ro" ];
+    options = [ "size=1M,rw" ];
   };
 
 }

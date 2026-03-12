@@ -93,4 +93,8 @@ in
   "stats1" = { name, nodes, ... }:  {
     imports = [ ./machines/stats1.ffrn.de ];
   };
+
+  "web1" = { name, nodes, ... }:  {
+    imports = [ ./machines/web1.ffrn.de ];
+  };
 }
