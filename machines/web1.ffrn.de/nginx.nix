@@ -3,22 +3,9 @@
   services.nginx = {
     enable = true;
     virtualHosts = {
-      "idm.ffrn.de" =  {
+      "web1.ffrn.de" =  {
+        default = true;
         locations."/".return = "307 https://$host$request_uri";
-      };
-      "cloud.ffrn.de" =  {
-        locations."/".return = "307 https://$host$request_uri";
-      };
-      "tickets.ffrn.de" =  {
-        locations."/".return = "307 https://$host$request_uri";
-      };
-      "map.ffrn.de" =  {
-        locations."/".return = "307 https://$host$request_uri";
-        serverAliases = [
-          "m.ffrn.de"
-          "map.freifunk-rhein-neckar.de"
-          "tiles.ffrn.de"
-        ];
       };
     };
     streamConfig = ''
@@ -32,14 +19,17 @@
         resolver 127.0.0.53:53 ipv4=on ipv6=on;
       }
       upstream tickets {
-        # server tickets.int.ffrn.de:444;
-        server 192.168.100.34:444;
+        server tickets1.int.ffrn.de:444;
         resolver 127.0.0.53:53 ipv4=on ipv6=on;
       }
 
-      upstream map1 {
-        # server map1.int.ffrn.de:444;
-        server 192.168.100.36:444;
+      upstream map {
+        server map1.int.ffrn.de:444;
+        resolver 127.0.0.53:53 ipv4=on ipv6=on;
+      }
+
+      upstream forum {
+        server forum1.int.ffrn.de:444;
         resolver 127.0.0.53:53 ipv4=on ipv6=on;
       }
 
@@ -69,7 +59,7 @@
 
       server {
         listen 443;
-        proxy_pass map1;
+        proxy_pass map;
         proxy_protocol on;
         ssl_preread on;
         server_name map.ffrn.de;
