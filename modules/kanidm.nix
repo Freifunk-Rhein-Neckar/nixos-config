@@ -60,7 +60,7 @@ in {
 
   networking.firewall.extraInputRules = ''
     ${ if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then ''
-      iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport 444 counter accept comment "nginx: kanidm: accept from nebula"
+      iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport 444 counter accept comment "nginx: accept proxy_protocol from nebula"
     '' else ""}
   '';
 
