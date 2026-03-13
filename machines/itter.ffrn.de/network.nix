@@ -418,8 +418,6 @@
       protocol static s_main4 {
           route 0.0.0.0/0 via 88.198.68.97%${config.systemd.network.links."10-mainif".linkConfig.Name};
           route 94.130.243.234/32 via "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}"; # tools-itter
-          #route 94.130.243.237/32 via "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}"; # meet
-          route 88.198.112.218/32 via "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}"; # forum
 
           ipv4 {
               import all;
