@@ -67,6 +67,15 @@
         server_name map.freifunk-rhein-neckar.de;
         server_name tiles.ffrn.de;
       }
+      server {
+        listen 443;
+        proxy_pass forum;
+        proxy_protocol on;
+        ssl_preread on;
+        server_name forum.ffrn.de;
+        server_name faq.ffrn.de;
+        server_name forum.freifunk-rhein-neckar.de;
+      }
     '';
   };
 
