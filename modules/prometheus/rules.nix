@@ -85,7 +85,7 @@
             }
             {
               alert = "BlackboxSslCertificateWillExpireSoon";
-              expr = "((probe_ssl_earliest_cert_expiry - time())/86400) < 20";
+              expr = "((probe_ssl_earliest_cert_expiry - time())/86400) < 3";
               for = "1m";
               labels = {
                 severity = "info";
@@ -98,7 +98,7 @@
             # https://awesome-prometheus-alerts.grep.to/rules
             {
               alert = "BlackboxSslCertificateWillExpireVerySoon";
-              expr = "((probe_ssl_earliest_cert_expiry - time())/86400) < 3";
+              expr = "((probe_ssl_earliest_cert_expiry - time())/86400) < 2";
               for = "1m";
               labels = {
                 severity = "critical";
