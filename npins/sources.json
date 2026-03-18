@@ -74,9 +74,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "8810632b1706fb5ce3cdb02734d9c5018a007618",
-      "url": "https://github.com/herbetom/npins-updater/archive/8810632b1706fb5ce3cdb02734d9c5018a007618.tar.gz",
-      "hash": "17fqlr0syg767q8slghnllqxxwfrjmar5yixcys2frkcj4574zgi"
+      "revision": "2191c80ff416137402524c70e01f5a5a5979b892",
+      "url": "https://github.com/herbetom/npins-updater/archive/2191c80ff416137402524c70e01f5a5a5979b892.tar.gz",
+      "hash": "0yih1synk5nw9vlc8klqfa23qb5bahrq5pg7ixq90r652v6kl4jx"
     }
   },
   "version": 5
