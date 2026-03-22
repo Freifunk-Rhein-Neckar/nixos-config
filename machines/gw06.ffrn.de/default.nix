@@ -14,9 +14,6 @@
   networking.hostName = "gw06";
   networking.domain = "ffrn.de";
 
-  deployment.targetHost = "2a01:4f8:160:624c:5054:ff:fed2:43c1";
-
-
   boot.loader.grub.device = "/dev/vda";
 
   # This option defines the first version of NixOS you have installed on this particular machine,

@@ -7,7 +7,7 @@
 
   modules.ffrn-gateway = {
     publicIPv4 = "88.198.112.221";
-    publicIPv6 = "2a01:4f8:160:624c::ff3:6";
+    publicIPv6 = "2a01:4f8:222:f3ff::6:1";
   };
 
   modules.freifunk.gateway.domains = {

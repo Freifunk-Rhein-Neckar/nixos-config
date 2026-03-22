@@ -13,7 +13,5 @@
 
   networking.hostName = "cloud1";
 
-  # deployment.targetHost = "2a01:4f8:160:624c:1266:6aff:fef1:2a32";
-
   system.stateVersion = "25.11";
 }

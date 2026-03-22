@@ -11,6 +11,8 @@
     publicIPv6 = "2a01:4f8:140:4093::ff2:7";
   };
 
+  systemd.network.networks."10-mainif".address = [ "2a01:4f8:140:4093::ff2:7" ];
+
   modules.freifunk.gateway.domains = {
     dom0 = {
       ipv4.dhcpV4.pools = [

@@ -35,7 +35,7 @@ in
       }
     '';
 
-    systemd.network.networks."10-mainif".address = [ "${cfg.publicIPv6}" ];
+    # systemd.network.networks."10-mainif".address = [ "${cfg.publicIPv6}" ];
 
     networking.firewall.extraInputRules = ''
       ip6 saddr 2a01:4f8:171:3242::/64 udp dport 4789 counter accept comment "accept vxlan from elsenz"
@@ -114,15 +114,15 @@ in
           "2a01:4f8:140:4093::ff2:2"              # gw02.ffrn.de
           "2a01:4f8:171:3242::ff1:3"              # gw03.ffrn.de
           "2a01:4f8:140:4093::ff2:4"              # gw04.ffrn.de
-          "2a01:4f8:160:624c::ff3:5"              # gw05.ffrn.de
-          "2a01:4f8:160:624c::ff3:6"              # gw06.ffrn.de
+          "2a01:4f8:222:f3ff::5:1"                # gw05.ffrn.de
+          "2a01:4f8:222:f3ff::6:1"                # gw06.ffrn.de
           "2a01:4f8:140:4093::ff2:7"              # gw07.ffrn.de
-          "2a01:4f8:160:624c::ff3:8"              # gw08.ffrn.de
+          "2a01:4f8:222:f3ff::8:1"                # gw08.ffrn.de
           "2a01:4f8:171:3242::ff1:9"              # gw09.ffrn.de
           "2a01:4f8:140:4093:5054:ff:fed1:ebc5"   # map1.ffrn.de
-          "2a01:4f8:160:624c:5054:ff:fe37:2749"   # resolver1.ffrn.de
+          "2a01:4f8:222:3481:5054:ff:fe37:2749"   # resolver1.ffrn.de
           "2a01:4f8:140:4093:0:c0ff:fea8:7b21"    # resolver2.ffrn.de
-          "2a01:4f8:160:624c:5054:ff:fe62:3d89"   # unifi.ffrn.de
+          "2a01:4f8:222:3481:5054:ff:fe62:3d89"   # unifi.ffrn.de
         ];
       };
       domains = {

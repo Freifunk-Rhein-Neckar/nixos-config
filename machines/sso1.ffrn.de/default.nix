@@ -13,7 +13,5 @@
   networking.hostName = "sso1";
   networking.domain = "ffrn.de";
 
-  deployment.targetHost = "2a01:4f8:160:624c:1266:6aff:fef5:a2a4";
-
   system.stateVersion = "25.11";
 }

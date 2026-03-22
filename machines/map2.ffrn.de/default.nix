@@ -14,8 +14,6 @@
   networking.hostName = "map2";
   networking.domain = "ffrn.de";
 
-  deployment.targetHost = "2a01:4f8:160:624c:5054:ff:fef1:c0c7";
-
   boot.loader.grub.device = "/dev/vda";
 
   # This option defines the first version of NixOS you have installed on this particular machine,

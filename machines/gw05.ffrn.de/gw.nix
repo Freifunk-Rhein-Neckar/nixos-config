@@ -7,8 +7,10 @@
 
   modules.ffrn-gateway = {
     publicIPv4 = "88.198.112.220";
-    publicIPv6 = "2a01:4f8:160:624c::ff3:5";
+    publicIPv6 = "2a01:4f8:222:f3ff::5:1";
   };
+
+  systemd.network.networks."10-mainif".address = [ "2a01:4f8:160:624c::ff3:5" ];
 
   modules.freifunk.gateway.domains = {
     dom0 = {
