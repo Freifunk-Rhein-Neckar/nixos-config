@@ -77,6 +77,11 @@ in
     deployment.tags = [ "vmhost" ];
   };
 
+  "mail01" = { name, nodes, ... }:  {
+    imports = [ ./machines/mail01.ffrn.de ];
+    deployment.tags = [ "mail" "hetzner-vm" ];
+  };
+
   "weschnitz" = { name, nodes, ... }:  {
     imports = [ ./machines/weschnitz.ffrn.de ];
     deployment.tags = [ "vmhost" ];
