@@ -69,18 +69,28 @@
           "gw09.int.ffrn.de:9100"
           "stats.int.ffrn.de:9100"
 
-          "forum.ffrn.de:9100"
-          "tools-elsenz.ffrn.de:9100"
-          "tools-itter.ffrn.de:9100"
-          "unifi.ffrn.de:9100"
-          "tickets.ffrn.de:9100"
-          "resolver1.ffrn.de:9100"
-          "resolver2.ffrn.de:9100"
-          "map1.ffrn.de:9100"
-          "elsenz.ffrn.de:9100"
-          "itter.ffrn.de:9100"
-          "master.ffrn.de:9100"
-          "weschnitz.ffrn.de:9100"
+          "forum1.int.ffrn.de:9100"
+          "tools-elsenz.int.ffrn.de:9100"
+          "tools-itter.int.ffrn.de:9100"
+          "unifi.int.ffrn.de:9100"
+          "tickets1.int.ffrn.de:9100"
+          "resolver1.int.ffrn.de:9100"
+          "resolver2.int.ffrn.de:9100"
+          "map1.int.ffrn.de:9100"
+
+          "mail01.int.ffrn.de:9100"
+
+          "elsenz.int.ffrn.de:9100"
+          "itter.int.ffrn.de:9100"
+
+          "cloud1.int.ffrn.de:9100"
+          "garage1.int.ffrn.de:9100"
+          "garage2.int.ffrn.de:9100"
+          "web1.int.ffrn.de:9100"
+          "sso1.int.ffrn.de:9100"
+          "salt1.int.ffrn.de:9100"
+
+          "weschnitz.int.ffrn.de:9100"
         ];
       }];
     }
@@ -104,6 +114,8 @@
           "tickets1.int.ffrn.de"
           "map1.int.ffrn.de"
 
+          "salt1.int.ffrn.de"
+
           "gw02.ffrn.de"
           "gw03.ffrn.de"
           "gw04.ffrn.de"
@@ -112,7 +124,8 @@
           "gw07.ffrn.de"
           "gw08.ffrn.de"
           "gw09.ffrn.de"
-          "stats.ffrn.de"
+
+          # "stats.ffrn.de" # resolves to localhost
 
           "8.8.8.8"
           "8.8.4.4"
@@ -126,7 +139,8 @@
           "itter.ffrn.de"
           "weschnitz.ffrn.de"
 
-          "master.ffrn.de"
+          "mail01.ffrn.de"
+          "web1.ffrn.de"
         ];
       }];
       relabel_configs = [{
@@ -177,7 +191,7 @@
           "gw08.ffrn.de"
           "gw09.ffrn.de"
           "map.ffrn.de"
-          "stats1.ffrn.de"
+          # "stats.ffrn.de" # resolves to localhost
 
           "forum.ffrn.de"
           "tools-elsenz.ffrn.de"
@@ -203,7 +217,9 @@
           "itter.ffrn.de"
           "weschnitz.ffrn.de"
 
-          "master.ffrn.de"
+          "cloud1.ffrn.de"
+          "garage1.ffrn.de"
+          "garage2.ffrn.de"
 
           "2001:4860:4860::8888"
           "2001:4860:4860::8844"
@@ -268,7 +284,7 @@
           "wiki.ffrn.de"
           "tickets.ffrn.de"
           "unifi.ffrn.de"
-          "mail.ffrn.de"
+          "idm.ffrn.de"
         ];
       }];
       relabel_configs = [{
