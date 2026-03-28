@@ -56,7 +56,7 @@
         - source_match:
             alertname: MachineDown
           target_match_re:
-            alertname: (ExporterDown|Icmp4Timeout|Icmp6Timeout|DNS.+)
+            alertname: (ExportedMetricsDown|Icmp4Timeout|Icmp6Timeout|DNS.+)
           equal: [instance]
         - source_match:
             alertname: GarageClusterNotAvailable
