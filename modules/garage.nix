@@ -67,22 +67,31 @@ in
         index = "index.html";
       };
 
-      admin.api_bind_addr = "127.0.0.1:3903";
+      admin.api_bind_addr = "0.0.0.0:3903";
     };
   };
 
   environment.systemPackages = [ pkgs.minio-client ];
 
-  services.nebula.networks."ffrn".firewall.inbound = lib.optional (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) {
-    host = "any";
-    port = 3901;
-    proto = "tcp";
-    groups = [ "garage" ];
-  };
+  services.nebula.networks."ffrn".firewall.inbound = lib.optionals (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) [
+    {
+      host = "any";
+      port = 3901;
+      proto = "tcp";
+      groups = [ "garage" ];
+    }
+    {
+      host = "any";
+      port = 3903;
+      proto = "tcp";
+      groups = [ "garage" "noc" "prometheus" ];
+    }
+  ];
 
   networking.firewall.extraInputRules = ''
     ${ if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then ''
-      iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport 3901 counter accept comment "garage: accept from nebula"
+      iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport 3901 counter accept comment "garage: accept rpc from nebula"
+      iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport 3903 counter accept comment "garage: accept admin from nebula"
     '' else ""}
   '';
 

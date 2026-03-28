@@ -657,6 +657,79 @@
             }
           ];
         }
+        {
+          name = "garage";
+          rules = [
+            {
+              alert = "GarageNotAllNodesConnected";
+              expr = ''
+                (
+                  cluster_connected_nodes{job="garage"}
+                  !=
+                  cluster_known_nodes{job="garage"}
+                )
+                * on(instance, job) group_left(known_nodes)
+                count_values("known_nodes", cluster_known_nodes{job="garage"}) by (instance, job)
+              '';
+              for = "10m";
+              labels = {
+                severity = "info";
+              };
+              annotations = {
+                summary = "Not all garage nodes are connected to the cluster";
+                description = "{{ $labels.instance }} is currently only connected to {{ $value }} out of {{ $labels.known_nodes }} garage nodes";
+              };
+            }
+            {
+              alert = "GarageNotAllStorageNodesConnected";
+              expr = ''
+                (
+                  cluster_storage_nodes_ok{job="garage"}
+                  !=
+                  cluster_storage_nodes{job="garage"}
+                )
+                * on(instance, job) group_left(known_storage_nodes)
+                count_values("known_storage_nodes", cluster_storage_nodes{job="garage"}) by (instance, job)
+              '';
+              for = "10m";
+              labels = {
+                severity = "warning";
+              };
+              annotations = {
+                summary = "Not all garage storage nodes are connected to the cluster";
+                description = "{{ $labels.instance }} is currently only connected to {{ $value }} out of {{ $labels.known_storage_nodes }} garage storage nodes";
+              };
+            }
+            {
+              alert = "GarageClusterNotAvailable";
+              expr = ''
+                min by (job) (cluster_available{job="garage"}) != 1
+              '';
+              for = "2m";
+              labels = {
+                severity = "page";
+              };
+              annotations = {
+                summary = "A Garage cluster is not available.";
+                description = "Garage cluster {{ $labels.job }} isn't available.";
+              };
+            }
+            {
+              alert = "GarageClusterHealthy";
+              expr = ''
+                min by (job) (cluster_healthy{job="garage"}) != 1
+              '';
+              for = "5m";
+              labels = {
+                severity = "warning";
+              };
+              annotations = {
+                summary = "A Garage cluster is not healthy.";
+                description = "Garage cluster {{ $labels.job }} isn't healthy.";
+              };
+            }
+          ];
+        }
       ];
     })
   ];

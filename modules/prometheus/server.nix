@@ -365,6 +365,17 @@
         ];
       }];
     }
+    {
+      job_name = "garage";
+      static_configs = [{
+        targets = [
+          "garage1.int.ffrn.de:3903"
+          "garage2.int.ffrn.de:3903"
+          "stats1.int.ffrn.de:3903"
+          "cloud1.int.ffrn.de:3903"
+        ];
+      }];
+    }
 
   ];
 

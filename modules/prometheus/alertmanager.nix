@@ -58,6 +58,21 @@
           target_match_re:
             alertname: (ExporterDown|Icmp4Timeout|Icmp6Timeout|DNS.+)
           equal: [instance]
+        - source_match:
+            alertname: GarageClusterNotAvailable
+          target_match_re:
+            alertname: (ExportedMetricsDown|GarageClusterHealthy|GarageNotAllNodesConnected|GarageNotAllStorageNodesConnected)
+          equal: [job]
+        - source_match:
+            alertname: GarageClusterHealthy
+          target_match_re:
+            alertname: (ExportedMetricsDown|GarageNotAllNodesConnected|GarageNotAllStorageNodesConnected)
+          equal: [job]
+        - source_match:
+            alertname: GarageNotAllStorageNodesConnected
+          target_match_re:
+            alertname: (ExportedMetricsDown|GarageNotAllNodesConnected)
+          equal: [instance, job]
 
       receivers:
         - name: pushover
