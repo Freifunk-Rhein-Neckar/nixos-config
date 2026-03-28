@@ -16,9 +16,9 @@
       credentialsFile = config.age.secrets."acme".path;
 
       # default to shortlived profile
-      profile = "shortlived";
-      validMinDays = 3;
-      renewInterval = "3/6:00:00";
+      profile = lib.mkDefault "shortlived";
+      validMinDays = lib.mkDefault 3;
+      renewInterval = lib.mkDefault "3/6:00:00";
     };
     acceptTerms = true;
   };
