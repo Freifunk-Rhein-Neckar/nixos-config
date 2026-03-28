@@ -41,7 +41,8 @@ in {
       "192.168.100.1"
       "192.168.100.16"
     ];
-    relays = [
+    relays = lib.mkDefault [
+      "192.168.100.1"
       "192.168.100.16"
     ];
     listen = {
@@ -106,6 +107,9 @@ in {
           user = "root";
           keys = config.users.users.root.openssh.authorizedKeys.keys;
         }];
+      };
+      relay = {
+        use_relays = lib.mkDefault true;
       };
     };
   };
