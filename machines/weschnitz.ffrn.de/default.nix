@@ -4,7 +4,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./network
-      ./incus.nix
       ../../roles/ffrn-hetzner-dedicated-server.nix
     ];
 

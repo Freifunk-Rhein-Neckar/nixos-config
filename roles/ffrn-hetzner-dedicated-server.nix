@@ -7,6 +7,7 @@ in {
 
   imports = [
     ../modules/chrony.nix
+    ../modules/incus.nix
   ];
 
   networking.firewall.extraForwardRules = lib.mkOrder 10 ''
