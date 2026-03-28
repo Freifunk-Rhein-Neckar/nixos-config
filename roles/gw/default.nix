@@ -4,6 +4,7 @@
   imports = [
     (import (import ../../npins).nix-freifunk)
     ../../modules/ffrn-gateway.nix
+    ../../secrets/gw/secret.nix
   ];
 
   age.secrets."fastd-secret.conf" = {
