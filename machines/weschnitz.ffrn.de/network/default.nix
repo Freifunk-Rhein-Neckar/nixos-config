@@ -481,12 +481,6 @@
       }
       {
         # Duplicate to mainif. Neccsesary so that the host addr is reachable from br-vm
-        Address = "2a01:4f8:160:624c::2/64";
-        PreferredLifetime = 0;
-        Scope = "link";
-      }
-      {
-        # Duplicate to mainif. Neccsesary so that the host addr is reachable from br-vm
         Address = "2a01:4f8:222:3481::2/64";
         PreferredLifetime = 0;
         Scope = "link";
@@ -501,13 +495,6 @@
       DHCPServer = true;
     };
     ipv6Prefixes = [
-      {
-        Prefix = "2a01:4f8:160:624c::/64";
-        Assign = true;
-        Token = [
-          "::3"
-        ];
-      }
       {
         Prefix = "2a01:4f8:222:3481::/64";
         Assign = true;

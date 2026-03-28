@@ -45,7 +45,10 @@
       IPv6Forwarding = true;
       # VLAN = [ config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name ];
     };
-    address = [ "176.9.161.125/29" "2a01:4f8:160:624c::2/128" "2a01:4f8:222:3481::2/128" ];
+    address = [
+      "176.9.161.125/29"
+      "2a01:4f8:222:3481::2/128"
+    ];
     routes = [
       { Gateway = "fe80::1"; }
       { Gateway = "176.9.161.121"; GatewayOnLink = true; }
