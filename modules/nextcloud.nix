@@ -90,6 +90,15 @@ in {
       lost_password_link = "disabled";
 
       allow_local_remote_servers = true;
+
+      mail_smtpsecure = "ssl";
+      mail_smtpport = 465;
+      mail_smtpname = "cloud@ffrn.de";
+      mail_smtpmode = "smtp";
+      mail_smtphost = "mail.ffrn.de";
+      mail_smtpauth = true;
+      mail_from_address = "cloud";
+      mail_domain = "ffrn.de";
     };
     poolSettings = {
       "pm" = "dynamic";
@@ -119,11 +128,6 @@ in {
     #nextcloud-occ config:system:set memcache.locking --value '\OC\Memcache\Redis' --type string
     #nextcloud-occ config:system:set memcache.distributed --value '\OC\Memcache\Redis' --type string
 
-    nextcloud-occ config:system:set --value smtp mail_smtpmode
-    nextcloud-occ config:system:set --value mail.ffrn.de mail_smtphost
-    nextcloud-occ config:system:set --value 465 --type int mail_smtpport
-    nextcloud-occ config:system:set --value ssl mail_smtpsecure
-    nextcloud-occ config:system:set --value "tools@ffrn.de" mail_smtpname
   '';
 
   services.phpfpm.pools.nextcloud.settings = {
