@@ -376,7 +376,17 @@
         ];
       }];
     }
-
+    {
+      job_name = "incus";
+      metrics_path = "/1.0/metrics";
+      scheme = "https";
+      static_configs = [{
+        targets = [
+          "itter.int.ffrn.de:8444"
+          "weschnitz.int.ffrn.de:8444"
+        ];
+      }];
+    }
   ];
 
   services.nebula.networks."ffrn".firewall.inbound = if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then [
