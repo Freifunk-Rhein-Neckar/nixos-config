@@ -80,18 +80,18 @@
       '';
       useACMEHost = "garage.ffrn.de";
     };
-    # virtualHosts."https://" = {
-    #   extraConfig = ''
-    #     tls {
-    #       on_demand
-    #     }
-    #     reverse_proxy ${config.services.garage.settings.s3_web.bind_addr} {
-    #       health_uri       /health
-    #       health_port      3903
-    #       health_interval 15s
-    #     }
-    #   '';
-    # };
+    virtualHosts."https://" = {
+      extraConfig = ''
+        tls {
+          on_demand
+        }
+        reverse_proxy ${config.services.garage.settings.s3_web.bind_addr} {
+          health_uri       /health
+          health_port      3903
+          health_interval 15s
+        }
+      '';
+    };
     globalConfig = ''
       on_demand_tls {
         ask http://${config.services.garage.settings.admin.api_bind_addr}/check
