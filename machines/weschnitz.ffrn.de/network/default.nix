@@ -413,6 +413,7 @@
           route 2a01:4f8:160:9700::/56 unreachable;
           route 2a01:4f8:160:97c0::/60 via 2a01:4f8:160:624c:5054:ff:fe6b:6397; # gw-test01
           route 2a01:4f8:222:f300::/56 unreachable;
+          route 2a01:4f8:222:f3ff::30:1/128 via "br-vm"; # tools-elsenz
 
           ipv6 {
               import all;
@@ -422,7 +423,8 @@
 
       protocol static s_main4 {
           route 0.0.0.0/0 via 176.9.161.121%${config.systemd.network.links."10-mainif".linkConfig.Name};
-          #route 88.198.112.218/32 via "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}"; # forum
+          route 88.198.106.115/32 via "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}"; # tools-elsenz
+          route 138.201.30.254/32 via "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}"; # tools-elsenz via elsenz
 
           ipv4 {
               import all;
