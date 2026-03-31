@@ -27,8 +27,7 @@
       ];
 
       define PEERING_NET6 = [
-          2a01:4f8:171:fcfd::/64,     # ffrnix
-          2a01:4f8:171:fcfc::/64      # twoix
+          2a01:4f8:140:77fe::/64      # ffrnix
       ];
 
       define LOCAL_NET4 = [
@@ -155,37 +154,16 @@
 
       # static routing on vmhosts
 
-      ipv6 table elsenz6;
       ipv6 table itter6;
       ipv6 table weschnitz6;
 
-      ipv4 table elsenz4;
       ipv4 table itter4;
       ipv4 table weschnitz4;
 
       # IPv6
 
-      protocol static s_elsenz6 {
-          route ::/0 via 2a01:4f8:171:fcfd::20:1;
-          ipv6 {
-              table elsenz6;
-              import all;
-              export none;
-          };
-      }
-
-      protocol kernel k_elsenz6 {
-          persist;
-          kernel table 11;
-          ipv6 {
-              table elsenz6;
-              export filter allroutes;
-              import none;
-          };
-      }
-
       protocol static s_itter6 {
-          route ::/0 via 2a01:4f8:171:fcfd::40:1;
+          route ::/0 via 2a01:4f8:140:77fe::40:1;
           ipv6 {
               table itter6;
               import all;
@@ -224,29 +202,9 @@
 
       # IPv4
 
-      protocol static s_elsenz4 {
-          route 0.0.0.0/0 via 192.168.128.20;
-          # route 0.0.0.0/0 via 2a01:4f8:171:fcfd::20:1;
-          ipv4 {
-              table elsenz4;
-              import all;
-              export none;
-          };
-      }
-
-      protocol kernel k_elsenz4 {
-          persist;
-          kernel table 11;
-          ipv4 {
-              table elsenz4;
-              export filter allroutes;
-              import none;
-          };
-      }
-
       protocol static s_itter4 {
           route 0.0.0.0/0 via 192.168.128.40;
-          # route 0.0.0.0/0 via 2a01:4f8:171:fcfd::40:1;
+          # route 0.0.0.0/0 via 2a01:4f8:140:77fe::40:1;
           ipv4 {
               table itter4;
               import all;
@@ -424,7 +382,6 @@
       protocol static s_main4 {
           route 0.0.0.0/0 via 176.9.161.121%${config.systemd.network.links."10-mainif".linkConfig.Name};
           route 88.198.106.115/32 via "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}"; # tools-elsenz
-          route 138.201.30.254/32 via "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}"; # tools-elsenz via elsenz
 
           ipv4 {
               import all;
@@ -449,7 +406,7 @@
     };
     address = [
       "192.168.128.10/24"
-      "2a01:4f8:171:fcfd::10:1/64"
+      "2a01:4f8:140:77fe::10:1/64"
     ];
   };
 
@@ -516,12 +473,6 @@
       }
       {
         Family = "ipv6";
-        From = "2a01:4f8:171:fc00::/56";
-        Table = 11;
-        Priority = 31010;
-      }
-      {
-        Family = "ipv6";
         From = "2a01:4f8:140:7700::/56";
         Table = 12;
         Priority = 31020;
@@ -537,42 +488,6 @@
         From = "2a01:4f8:222:f300::/56";
         Table = 13;
         Priority = 31031;
-      }
-      {
-        Family = "ipv4";
-        From = "138.201.30.242/32";
-        Table = 11;
-        Priority = 31011;
-      }
-      {
-        Family = "ipv4";
-        From = "138.201.30.243/32";
-        Table = 11;
-        Priority = 31012;
-      }
-      {
-        Family = "ipv4";
-        From = "138.201.30.244/32";
-        Table = 11;
-        Priority = 31013;
-      }
-      {
-        Family = "ipv4";
-        From = "138.201.30.247/32";
-        Table = 11;
-        Priority = 31014;
-      }
-      {
-        Family = "ipv4";
-        From = "138.201.30.254/32";
-        Table = 11;
-        Priority = 31015;
-      }
-      {
-        Family = "ipv4";
-        From = "138.201.44.141/32";
-        Table = 11;
-        Priority = 31016;
       }
       {
         Family = "ipv4";
@@ -663,14 +578,10 @@
       ip6 saddr { 2a01:4f8:160:624c::/64, 2a01:4f8:222:3481::/64 } iifname "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}" oifname "${config.systemd.network.links."10-mainif".linkConfig.Name}" counter accept
       ip6 daddr { 2a01:4f8:160:624c::/64, 2a01:4f8:222:3481::/64 } iifname "${config.systemd.network.links."10-mainif".linkConfig.Name}" oifname "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}" counter accept
 
-      ip6 saddr { 2a01:4f8:171:3242::/64, 2a01:4f8:171:fc00::/56 } iifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept
-      ip6 daddr { 2a01:4f8:171:3242::/64, 2a01:4f8:171:fc00::/56 } iifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept
       ip6 saddr { 2a01:4f8:140:4093::/64, 2a01:4f8:140:7700::/56 } iifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept
       ip6 daddr { 2a01:4f8:140:4093::/64, 2a01:4f8:140:7700::/56 } iifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept
       ip6 saddr { 2a01:4f8:160:624c::/64, 2a01:4f8:160:9700::/56, 2a01:4f8:222:3481::/64, 2a01:4f8:222:f300::/56 } iifname { "${config.systemd.network.links."10-mainif".linkConfig.Name}", "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.links."10-mainif".linkConfig.Name}", "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept
       ip6 daddr { 2a01:4f8:160:624c::/64, 2a01:4f8:160:9700::/56, 2a01:4f8:222:3481::/64, 2a01:4f8:222:f300::/56 } iifname { "${config.systemd.network.links."10-mainif".linkConfig.Name}", "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.links."10-mainif".linkConfig.Name}", "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept
-      ip saddr { 138.201.30.242, 138.201.30.243, 138.201.30.244, 138.201.30.247, 138.201.30.254, 138.201.44.141 } iifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept
-      ip daddr { 138.201.30.242, 138.201.30.243, 138.201.30.244, 138.201.30.247, 138.201.30.254, 138.201.44.141 } iifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept
       ip saddr 94.130.243.232/29 iifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept
       ip daddr 94.130.243.232/29 iifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept
       ip saddr { 88.198.106.115, 88.198.112.217, 88.198.112.218, 88.198.112.220, 88.198.112.221, 88.198.112.222 } iifname { "${config.systemd.network.links."10-mainif".linkConfig.Name}", "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } oifname { "${config.systemd.network.links."10-mainif".linkConfig.Name}", "${config.systemd.network.netdevs."71-br-vm".netdevConfig.Name}", "twoix", "${config.systemd.network.netdevs."25-ffrnix".netdevConfig.Name}", "br-test6" } counter accept

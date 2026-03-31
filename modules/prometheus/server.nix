@@ -60,13 +60,13 @@
       static_configs = [{
         targets = [
           "gw02.int.ffrn.de:9100"
-          "gw03.int.ffrn.de:9100"
+          # "gw03.int.ffrn.de:9100"
           "gw04.int.ffrn.de:9100"
           "gw05.int.ffrn.de:9100"
           # "gw06.int.ffrn.de:9100"
           "gw07.int.ffrn.de:9100"
           "gw08.int.ffrn.de:9100"
-          "gw09.int.ffrn.de:9100"
+          # "gw09.int.ffrn.de:9100"
           "stats.int.ffrn.de:9100"
 
           "forum1.int.ffrn.de:9100"
@@ -80,7 +80,6 @@
 
           "mail01.int.ffrn.de:9100"
 
-          "elsenz.int.ffrn.de:9100"
           "itter.int.ffrn.de:9100"
 
           "cloud1.int.ffrn.de:9100"
@@ -101,13 +100,13 @@
       params.module = [ "icmp4" ];
       static_configs = [{ targets = [
           "gw02.int.ffrn.de"
-          "gw03.int.ffrn.de"
+          # "gw03.int.ffrn.de"
           "gw04.int.ffrn.de"
           "gw05.int.ffrn.de"
           # "gw06.int.ffrn.de"
           "gw07.int.ffrn.de"
           "gw08.int.ffrn.de"
-          "gw09.int.ffrn.de"
+          # "gw09.int.ffrn.de"
           "stats.int.ffrn.de"
 
           "forum1.int.ffrn.de"
@@ -135,7 +134,6 @@
           "tools-elsenz.ffrn.de"
           "tools-itter.ffrn.de"
 
-          "elsenz.ffrn.de"
           "itter.ffrn.de"
           "weschnitz.ffrn.de"
 
@@ -183,13 +181,13 @@
       params.module = [ "icmp6" ];
       static_configs = [{ targets = [
           "gw02.ffrn.de"
-          "gw03.ffrn.de"
+          # "gw03.ffrn.de"
           "gw04.ffrn.de"
           "gw05.ffrn.de"
           # "gw06.ffrn.de"
           "gw07.ffrn.de"
           "gw08.ffrn.de"
-          "gw09.ffrn.de"
+          # "gw09.ffrn.de"
           "map.ffrn.de"
           # "stats.ffrn.de" # resolves to localhost
 
@@ -213,7 +211,6 @@
 
           "web1.ffrn.de"
 
-          "elsenz.ffrn.de"
           "itter.ffrn.de"
           "weschnitz.ffrn.de"
 
@@ -303,13 +300,13 @@
       static_configs = [{
         targets = [
           "gw02.int.ffrn.de:9547"
-          "gw03.int.ffrn.de:9547"
+          # "gw03.int.ffrn.de:9547"
           "gw04.int.ffrn.de:9547"
           "gw05.int.ffrn.de:9547"
           # "gw06.int.ffrn.de:9547"
           "gw07.int.ffrn.de:9547"
           "gw08.int.ffrn.de:9547"
-          "gw09.int.ffrn.de:9547"
+          # "gw09.int.ffrn.de:9547"
         ];
       }];
     }
@@ -318,13 +315,13 @@
       static_configs = [{
         targets = [
           "gw02.int.ffrn.de:9281"
-          "gw03.int.ffrn.de:9281"
+          # "gw03.int.ffrn.de:9281"
           "gw04.int.ffrn.de:9281"
           "gw05.int.ffrn.de:9281"
           # "gw06.int.ffrn.de:9281"
           "gw07.int.ffrn.de:9281"
           "gw08.int.ffrn.de:9281"
-          "gw09.int.ffrn.de:9281"
+          # "gw09.int.ffrn.de:9281"
         ];
       }];
     }
