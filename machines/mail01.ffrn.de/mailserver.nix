@@ -18,6 +18,9 @@ in
       profile = "classic";
       validMinDays = 30;
       renewInterval = "daily";
+      postRun = ''
+        systemctl try-reload-or-restart postfix.service dovecot2.service
+      '';
     };
   };
 
