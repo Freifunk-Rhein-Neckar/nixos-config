@@ -37,10 +37,10 @@ in
     deployment.tags = [ "gw" "incus-vm" ];
   };
 
-  "gw03" = { name, nodes, ... }:  {
-    imports = [ ./machines/gw03.ffrn.de ];
-    deployment.tags = [ "gw" "libvirt-vm" ];
-  };
+  #"gw03" = { name, nodes, ... }:  {
+  #  imports = [ ./machines/gw03.ffrn.de ];
+  #  deployment.tags = [ "gw" "libvirt-vm" ];
+  #};
 
   "gw04" = { name, nodes, ... }:  {
     imports = [ ./machines/gw04.ffrn.de ];
@@ -67,10 +67,10 @@ in
     deployment.tags = [ "gw" "libvirt-vm" ];
   };
 
-  "gw09" = { name, nodes, ... }:  {
-    imports = [ ./machines/gw09.ffrn.de ];
-    deployment.tags = [ "gw" "libvirt-vm" ];
-  };
+  #"gw09" = { name, nodes, ... }:  {
+  #  imports = [ ./machines/gw09.ffrn.de ];
+  #  deployment.tags = [ "gw" "libvirt-vm" ];
+  #};
 
   "itter" = { name, nodes, ... }:  {
     imports = [ ./machines/itter.ffrn.de ];
