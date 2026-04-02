@@ -7,6 +7,7 @@ in
     (import sources.nixos-mailserver)
     ../../modules/acme.nix
     ../../secrets/${name}/accounts.nix
+    ../../secrets/${name}/rspamd.nix
   ];
 
   security.acme = {
