@@ -8,6 +8,7 @@ in
     ../../modules/acme.nix
     ../../secrets/${name}/accounts.nix
     ../../secrets/${name}/rspamd.nix
+    ./rspamd-proxy.nix
   ];
 
   security.acme = {
