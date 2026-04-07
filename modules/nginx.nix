@@ -14,6 +14,7 @@
     ${ if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then ''
       iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport 80 counter accept comment "nginx: accept http from nebula"
       iifname "${config.services.nebula.networks."ffrn".tun.device}" tcp dport 443 counter accept comment "nginx: accept https from nebula"
+      iifname "${config.services.nebula.networks."ffrn".tun.device}" udp dport 443 counter accept comment "nginx: accept https from nebula"
     '' else ""}
   '';
 
