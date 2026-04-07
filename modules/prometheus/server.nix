@@ -37,9 +37,27 @@
     ];
   };
 
+  services.nginx.upstreams.prometheus = {
+    servers = {
+      "[::1]:${builtins.toString config.services.prometheus.port}" = { };
+    };
+  };
+
   services.nginx.virtualHosts."prometheus.int.ffrn.de" = {
     locations."/" = {
-      proxyPass = "http://[::1]:${builtins.toString config.services.prometheus.port}";
+      proxyPass = "http://prometheus";
+    };
+    locations."=/api/v1/notifications/live" = {
+      proxyPass = "http://prometheus";
+      extraConfig = ''
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_buffering off;
+        proxy_cache off;
+        proxy_read_timeout 10m;
+        proxy_send_timeout 10m;
+        gzip off;
+      '';
     };
     forceSSL = true;
     useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
@@ -381,6 +399,15 @@
         targets = [
           "itter.int.ffrn.de:8444"
           "weschnitz.int.ffrn.de:8444"
+        ];
+      }];
+    }
+    {
+      job_name = "rspamd";
+      scheme = "https";
+      static_configs = [{
+        targets = [
+          "rspamd.int.ffrn.de"
         ];
       }];
     }
