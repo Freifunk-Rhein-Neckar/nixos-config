@@ -17,6 +17,9 @@ Clone this repo with it's submodules and enter the dir.
 Run `nix-shell`. This will give you an shell where all relevant packages (colmena,
 agenix, npins, ... ) are installed.
 
+You can use something like `export NPINS_OVERRIDE_nix_freifunk=/home/user/nix-freifunk`
+to temporarily override the npins sources.
+
 #### Build only
 
 ```
