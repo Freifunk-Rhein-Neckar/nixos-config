@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       ./network
       ../../roles/ffrn-hetzner-dedicated-server.nix
+      ../../roles/remote-build-server.nix
     ];
 
   # Use the systemd-boot EFI boot loader.

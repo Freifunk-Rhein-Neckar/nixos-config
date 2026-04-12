@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./remote-build-users.nix
+      ../../roles/remote-build-server.nix
       ../../roles/netcup-vm-aarch64.nix
       ../../modules/prometheus/server.nix
       ../../modules/grafana.nix
