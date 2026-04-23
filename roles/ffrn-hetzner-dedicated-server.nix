@@ -33,6 +33,8 @@ in {
     oifname "${mainifname}" ip6 saddr fc00::/7 counter drop comment "RFC 4193 Unique Local Unicast"
     oifname "${mainifname}" ip6 daddr fc00::/7 counter drop comment "RFC 4193 Unique Local Unicast"
     oifname "${mainifname}" ip6 daddr 64:ff9b::/96 counter drop comment "RFC 6052 NAT64"
+    oifname "${mainifname}" ip6 saddr 2a01:4f8:160:9700::/56 counter drop comment "drop old weschnitz-56 range"
+    oifname "${mainifname}" ip6 saddr 2a01:4f8:160:624c::/64 counter drop comment "drop old weschnitz-64 range"
   '';
 
   systemd.services.sync-boot-mirror = {

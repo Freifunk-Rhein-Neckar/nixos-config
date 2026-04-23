@@ -143,11 +143,6 @@ in
                   "2a01:4f8:140:7700::${toString gwNumber}"
                 ];
               };
-              "2a01:4f8:160:9700::/64" = {
-                addresses = [
-                  "2a01:4f8:160:9700::${toString gwNumber}"
-                ];
-              };
               "2a01:4f8:222:f300::/64" = {
                 addresses = [
                   "2a01:4f8:222:f300::${toString gwNumber}"
