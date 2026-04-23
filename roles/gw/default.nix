@@ -81,9 +81,6 @@
             "2a01:4f8:140:7700::/64" = {
               announce = lib.mkDefault false;
             };
-            "2a01:4f8:160:9700::/64" = {
-              announce = lib.mkDefault false;
-            };
             "2a01:4f8:222:f300::/64" = {
               announce = lib.mkDefault false;
             };
