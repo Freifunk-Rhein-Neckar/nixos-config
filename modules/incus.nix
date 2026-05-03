@@ -37,6 +37,7 @@ in
         "core.https_address" = ":8443";
         "core.metrics_address" = ":8444";
         "core.metrics_authentication" = false;
+        "images.remote_cache_expiry" = 100;
       };
     };
   };
