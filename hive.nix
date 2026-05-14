@@ -22,19 +22,22 @@ in
 
   "cloud1" = { name, nodes, ... }:  {
     imports = [ ./machines/cloud1.ffrn.de ];
+    deployment.tags = [ "incus-vm" "hetzner-ffrn" ];
   };
 
   "garage1" = { name, nodes, ... }:  {
     imports = [ ./machines/garage1.ffrn.de ];
+    deployment.tags = [ "incus-vm" "hetzner-ffrn" ];
   };
 
   "garage2" = { name, nodes, ... }:  {
     imports = [ ./machines/garage2.ffrn.de ];
+    deployment.tags = [ "incus-vm" "hetzner-ffrn" ];
   };
 
   "gw02" = { name, nodes, ... }:  {
     imports = [ ./machines/gw02.ffrn.de ];
-    deployment.tags = [ "gw" "incus-vm" ];
+    deployment.tags = [ "gw" "incus-vm" "hetzner-ffrn" ];
   };
 
   #"gw03" = { name, nodes, ... }:  {
@@ -44,12 +47,12 @@ in
 
   "gw04" = { name, nodes, ... }:  {
     imports = [ ./machines/gw04.ffrn.de ];
-    deployment.tags = [ "gw" "incus-vm" ];
+    deployment.tags = [ "gw" "incus-vm" "hetzner-ffrn" ];
   };
 
   "gw05" = { name, nodes, ... }:  {
     imports = [ ./machines/gw05.ffrn.de ];
-    deployment.tags = [ "gw" "libvirt-vm" ];
+    deployment.tags = [ "gw" "incus-vm" "hetzner-ffrn" ];
   };
 
   #"gw06" = { name, nodes, ... }:  {
@@ -59,12 +62,12 @@ in
 
   "gw07" = { name, nodes, ... }:  {
     imports = [ ./machines/gw07.ffrn.de ];
-    deployment.tags = [ "gw" "incus-vm" ];
+    deployment.tags = [ "gw" "incus-vm" "hetzner-ffrn" ];
   };
 
   "gw08" = { name, nodes, ... }:  {
     imports = [ ./machines/gw08.ffrn.de ];
-    deployment.tags = [ "gw" "libvirt-vm" ];
+    deployment.tags = [ "gw" "incus-vm" "hetzner-ffrn" ];
   };
 
   #"gw09" = { name, nodes, ... }:  {
@@ -79,7 +82,7 @@ in
 
   "mail01" = { name, nodes, ... }:  {
     imports = [ ./machines/mail01.ffrn.de ];
-    deployment.tags = [ "mail" "hetzner-vm" ];
+    deployment.tags = [ "mail" "hetzner-cloud" ];
   };
 
   "weschnitz" = { name, nodes, ... }:  {
@@ -93,13 +96,16 @@ in
 
   "sso1" = { name, nodes, ... }:  {
     imports = [ ./machines/sso1.ffrn.de ];
+    deployment.tags = [ "incus-vm" "hetzner-ffrn" ];
   };
 
   "stats1" = { name, nodes, ... }:  {
     imports = [ ./machines/stats1.ffrn.de ];
+    deployment.tags = [ "netcup" ];
   };
 
   "web1" = { name, nodes, ... }:  {
     imports = [ ./machines/web1.ffrn.de ];
+    deployment.tags = [ "incus-vm" "hetzner-ffrn" ];
   };
 }
