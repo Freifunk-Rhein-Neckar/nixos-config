@@ -74,9 +74,9 @@
       },
       "branch": "nixos-25.11-small",
       "submodules": false,
-      "revision": "54a8ef403e0b27e1eed0298f92e8d3cb863c968a",
-      "url": "https://github.com/NixOS/nixpkgs/archive/54a8ef403e0b27e1eed0298f92e8d3cb863c968a.tar.gz",
-      "hash": "1lnmaljwl6a0vn04ljbf4vlgy8ji0f58y5q2ivnfygdrp011l8gs"
+      "revision": "1e91bdae0f01a9f8dd922623f27a63c713086484",
+      "url": "https://github.com/NixOS/nixpkgs/archive/1e91bdae0f01a9f8dd922623f27a63c713086484.tar.gz",
+      "hash": "17sf27anhijhl2qbph558z0zbk2yrkx5mkfl3wclpsw3jqx2v603"
     },
     "npins-updater": {
       "type": "Git",
