@@ -42,6 +42,7 @@
     profile = "shortlived";
     validMinDays = 3;
     renewInterval = "3/6:00:00";
+    renewJitter = "4h";
   };
 
   users.groups."${config.security.acme.certs."garage.ffrn.de".group}".members = if config.services.nginx.enable then [ "${config.services.nginx.user}" ] else [];

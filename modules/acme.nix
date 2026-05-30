@@ -28,6 +28,7 @@
       profile = lib.mkDefault "shortlived";
       validMinDays = lib.mkDefault 3;
       renewInterval = lib.mkDefault "3/6:00:00";
+      renewJitter = lib.mkDefault "4h";
     };
     acceptTerms = true;
   };
