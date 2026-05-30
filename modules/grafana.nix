@@ -22,6 +22,7 @@ in {
       };
       rendering.callback_url = "https://stats1.ffrn.de";
       rendering.server_url = "http://localhost:${builtins.toString grafana-image-renderer-port}/render";
+      rendering.renderer_token = "$__file{${config.age.secrets."grafana-renderer_token".path}}";
 
       smtp = {
         enabled = true;
@@ -87,6 +88,10 @@ in {
     settings = {
       server.addr = "[::]:8081";
     };
+  };
+
+  systemd.services.grafana-image-renderer.serviceConfig = {
+    EnvironmentFile = config.age.secrets.grafana-renderer-env.path;
   };
 
   services.nebula.networks."ffrn".firewall.inbound = if (lib.hasAttr "ffrn" config.services.nebula.networks && config.services.nebula.networks.ffrn.enable) then [
@@ -185,6 +190,6 @@ in {
       owner = "grafana";
       group = "grafana";
     };
-  }) [ "smtp-user" "smtp-host" "smtp-password" "smtp-from_address" "grafana-oauth-client-secret" "grafana-secret_key" ] );
+  }) [ "smtp-user" "smtp-host" "smtp-password" "smtp-from_address" "grafana-oauth-client-secret" "grafana-secret_key" "grafana-renderer_token" "grafana-renderer-env" ] );
 
 }
