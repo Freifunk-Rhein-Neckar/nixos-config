@@ -5,8 +5,15 @@
     ./acme.nix
   ];
 
-  age.secrets."acme-garage" = {
-    file = ../secrets/garage/acme.age;
+  age.secrets."acmeEnv-garage" = {
+    file = ../secrets/garage/acmeEnv.age;
+    mode = "0400";
+    owner = "root";
+    group = "root";
+  };
+
+  age.secrets."acmeTSIG-garage" = {
+    file = ../secrets/garage/acmeTSIG.age;
     mode = "0400";
     owner = "root";
     group = "root";
@@ -26,7 +33,11 @@
       "*.s3.ffrn.de"
     ];
     dnsProvider = "rfc2136";
-    credentialsFile = config.age.secrets."acme-garage".path;
+    credentialFiles = {
+      "RFC2136_TSIG_SECRET_FILE" = config.age.secrets."acmeTSIG-garage".path;
+    };
+    environmentFile = config.age.secrets."acmeEnv-garage".path;
+
     # default to shortlived profile
     profile = "shortlived";
     validMinDays = 3;

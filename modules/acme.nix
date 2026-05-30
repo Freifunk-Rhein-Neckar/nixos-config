@@ -2,8 +2,15 @@
 
 {
 
-  age.secrets."acme" = {
-    file = ../secrets/${name}/acme.age;
+  age.secrets."acmeEnv" = {
+    file = ../secrets/${name}/acmeEnv.age;
+    mode = "0400";
+    owner = "root";
+    group = "root";
+  };
+
+  age.secrets."acmeTSIG" = {
+    file = ../secrets/${name}/acmeTSIG.age;
     mode = "0400";
     owner = "root";
     group = "root";
@@ -11,9 +18,11 @@
 
   security.acme = {
     defaults = {
-      email = "certificates@ffrn.de";
       dnsProvider = "rfc2136";
-      credentialsFile = config.age.secrets."acme".path;
+      credentialFiles = {
+        "RFC2136_TSIG_SECRET_FILE" = config.age.secrets."acmeTSIG".path;
+      };
+      environmentFile = config.age.secrets."acmeEnv".path;
 
       # default to shortlived profile
       profile = lib.mkDefault "shortlived";
