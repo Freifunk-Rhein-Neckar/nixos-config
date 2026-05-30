@@ -35,15 +35,11 @@ in
       device = "rpool/mail/dkim";
       fsType = "zfs";
     };
-    "/var/sieve" = {
-      device = "rpool/mail/sieve";
-      fsType = "zfs";
-    };
   };
 
   mailserver = {
     enable = true;
-    stateVersion = 3;
+    stateVersion = 5;
     fqdn = "mail.ffrn.de";
     sendingFqdn = "mail01.ffrn.de";
     domains = [
@@ -61,10 +57,7 @@ in
       "freifunk-weinheim.de"
     ];
 
-    certificateScheme = "manual";
-
-    certificateFile = config.security.acme.certs."${config.networking.hostName}.${config.networking.domain}".directory + "/cert.pem";
-    keyFile = config.security.acme.certs."${config.networking.hostName}.${config.networking.domain}".directory + "/key.pem";
+    x509.useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
 
     # Enable IMAP, SMTP and POP3 over SSL/TLS
     enableImapSsl = true;
