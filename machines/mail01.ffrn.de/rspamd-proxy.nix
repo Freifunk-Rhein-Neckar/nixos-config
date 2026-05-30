@@ -69,6 +69,8 @@ in
     cookie.domain = "ffrn.de";
     cookie.name = "_oauth2_proxy_${config.services.oauth2-proxy.clientID}";
 
+    trustedProxyIP = [ "127.0.0.0/8" "::1" ];
+
     extraConfig = {
       whitelist-domain = ".ffrn.de";
       code-challenge-method = "S256";
