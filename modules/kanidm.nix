@@ -23,27 +23,30 @@ in {
   };
 
   services.kanidm = {
-    enableClient = true;
-    enableServer = true;
-
     package = pkgs.kanidm_1_10;
 
-    clientSettings = {
-      uri = "https://${domain}";
+    client = {
+      enable = true;
+      settings = {
+        uri = "https://${domain}";
+      };
     };
 
-    serverSettings = {
-      inherit domain;
-      origin = "https://${domain}";
-      bindaddress = "[::1]:8443";
-      ldapbindaddress = "[::]:3636";
-      trust_x_forward_for = true;
-      tls_key = config.security.acme.certs."${acmeDomain}".directory + "/key.pem";
-      tls_chain = config.security.acme.certs."${acmeDomain}".directory + "/fullchain.pem";
-      online_backup = {
-        path = "/var/lib/kanidm/backups/";
-        schedule = "@daily";
-        versions = 90;
+    server = {
+      enable = true;
+      settings = {
+        inherit domain;
+        origin = "https://${domain}";
+        bindaddress = "[::1]:8443";
+        ldapbindaddress = "[::]:3636";
+        trust_x_forward_for = true;
+        tls_key = config.security.acme.certs."${acmeDomain}".directory + "/key.pem";
+        tls_chain = config.security.acme.certs."${acmeDomain}".directory + "/fullchain.pem";
+        online_backup = {
+          path = "/var/lib/kanidm/backups/";
+          schedule = "@daily";
+          versions = 90;
+        };
       };
     };
   };
@@ -68,7 +71,7 @@ in {
     enable = true;
     upstreams.kanidm = {
       servers = {
-        "${config.services.kanidm.serverSettings.bindaddress}" = { };
+        "${config.services.kanidm.server.settings.bindaddress}" = { };
       };
     };
     virtualHosts."${domain}" = {
