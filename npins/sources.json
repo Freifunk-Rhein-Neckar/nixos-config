@@ -59,11 +59,11 @@
         "repo_path": "simple-nixos-mailserver/nixos-mailserver",
         "server": "https://gitlab.com/"
       },
-      "branch": "nixos-25.11",
+      "branch": "nixos-26.05",
       "submodules": false,
-      "revision": "25e6dbb8fca3b6e779c5a46fd03bd760b2165bb5",
-      "url": "https://gitlab.com/api/v4/projects/simple-nixos-mailserver%2Fnixos-mailserver/repository/archive.tar.gz?sha=25e6dbb8fca3b6e779c5a46fd03bd760b2165bb5",
-      "hash": "0f1mq2gdmx9wd0k89f6w61sbfzpd1wwz857l2xvyp1x0msmd2z20"
+      "revision": "6c11ff592ef0dce8f1cc2fd870a6d61bd9133afa",
+      "url": "https://gitlab.com/api/v4/projects/simple-nixos-mailserver%2Fnixos-mailserver/repository/archive.tar.gz?sha=6c11ff592ef0dce8f1cc2fd870a6d61bd9133afa",
+      "hash": "0qj3by2wsv992xkv8rcyvg7vs7284jh34m5gg9mjiknhqpraljcm"
     },
     "nixpkgs": {
       "type": "Git",
@@ -72,11 +72,11 @@
         "owner": "NixOS",
         "repo": "nixpkgs"
       },
-      "branch": "nixos-25.11-small",
+      "branch": "nixos-26.05-small",
       "submodules": false,
-      "revision": "1e91bdae0f01a9f8dd922623f27a63c713086484",
-      "url": "https://github.com/NixOS/nixpkgs/archive/1e91bdae0f01a9f8dd922623f27a63c713086484.tar.gz",
-      "hash": "17sf27anhijhl2qbph558z0zbk2yrkx5mkfl3wclpsw3jqx2v603"
+      "revision": "c85dc29a9bcafa665b8ce0654ca019cdb05e63c6",
+      "url": "https://github.com/NixOS/nixpkgs/archive/c85dc29a9bcafa665b8ce0654ca019cdb05e63c6.tar.gz",
+      "hash": "0i2rd8fv0k8vn7gh6va291bhqjl43l9qzwxl3f3cwkg1rprrakwa"
     },
     "npins-updater": {
       "type": "Git",
