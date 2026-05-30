@@ -52,6 +52,7 @@ in {
         auto_login = false;
       };
 
+      security.secret_key = "$__file{${config.age.secrets."grafana-secret_key".path}}";
     };
     provision = {
       enable = true;
@@ -184,6 +185,6 @@ in {
       owner = "grafana";
       group = "grafana";
     };
-  }) [ "smtp-user" "smtp-host" "smtp-password" "smtp-from_address" "grafana-oauth-client-secret" ] );
+  }) [ "smtp-user" "smtp-host" "smtp-password" "smtp-from_address" "grafana-oauth-client-secret" "grafana-secret_key" ] );
 
 }
