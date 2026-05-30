@@ -11,7 +11,7 @@
       "submodules": false,
       "revision": "b027ee29d959fda4b60b57566d64c98a202e0feb",
       "url": "https://github.com/ryantm/agenix/archive/b027ee29d959fda4b60b57566d64c98a202e0feb.tar.gz",
-      "hash": "1wlpvpj45qfixdzhmk2cgiwlkyaf8a5mjy2jp5lsx2wsxblclngm"
+      "hash": "sha256-9VnK6Oqai65puVJ4WYtCTvlJeXxMzAp/69HhQuTdl/I="
     },
     "colmena": {
       "type": "Git",
@@ -24,7 +24,7 @@
       "submodules": false,
       "revision": "349b035a5027f23d88eeb3bc41085d7ee29f18ed",
       "url": "https://github.com/zhaofengli/colmena/archive/349b035a5027f23d88eeb3bc41085d7ee29f18ed.tar.gz",
-      "hash": "1x7wpj8cy6h7x0qygqa0i6qapw2flffcmq2m2li4ll7p4ggb4ms1"
+      "hash": "sha256-QVey3iP3UEoiFVXgypyjTvCrsIlA4ecx6Acaz5C8/PQ="
     },
     "nebula-cert-generator": {
       "type": "Git",
@@ -37,7 +37,7 @@
       "submodules": false,
       "revision": "1cdfd3b375300f70c086431120350a6241c2bc1a",
       "url": "https://github.com/herbetom/nebula-cert-generator/archive/1cdfd3b375300f70c086431120350a6241c2bc1a.tar.gz",
-      "hash": "19j9iadp1drmjrnwqdx5v7d9k6r2k6ngk97khla8crajaf5gk5ww"
+      "hash": "sha256-nJf5ilNSZYYUhfOk+ayZIpuZ2tmlN8xtljW3cJuKSaY="
     },
     "nix-freifunk": {
       "type": "Git",
@@ -50,7 +50,7 @@
       "submodules": false,
       "revision": "9a05451901bae0ed4961c71b84d6654fe3d975f1",
       "url": "https://github.com/nix-freifunk/nix-freifunk/archive/9a05451901bae0ed4961c71b84d6654fe3d975f1.tar.gz",
-      "hash": "0a2pla4prkj12sq26a0azlbg4j8jivz0wparydvpcjfv9ccvb0zv"
+      "hash": "sha256-+4O1GUvbSXZ381ldDv6OEknyFv0KKCOwFkHOfImiVyg="
     },
     "nixos-mailserver": {
       "type": "Git",
@@ -63,7 +63,7 @@
       "submodules": false,
       "revision": "6c11ff592ef0dce8f1cc2fd870a6d61bd9133afa",
       "url": "https://gitlab.com/api/v4/projects/simple-nixos-mailserver%2Fnixos-mailserver/repository/archive.tar.gz?sha=6c11ff592ef0dce8f1cc2fd870a6d61bd9133afa",
-      "hash": "0qj3by2wsv992xkv8rcyvg7vs7284jh34m5gg9mjiknhqpraljcm"
+      "hash": "sha256-lUmq8sXQzihreq9UMqAkSBy9z9ueZbRnFyltzYVfQ2I="
     },
     "nixpkgs": {
       "type": "Git",
@@ -76,7 +76,7 @@
       "submodules": false,
       "revision": "c85dc29a9bcafa665b8ce0654ca019cdb05e63c6",
       "url": "https://github.com/NixOS/nixpkgs/archive/c85dc29a9bcafa665b8ce0654ca019cdb05e63c6.tar.gz",
-      "hash": "0i2rd8fv0k8vn7gh6va291bhqjl43l9qzwxl3f3cwkg1rprrakwa"
+      "hash": "sha256-ik+V883hTc6GG7TzjxMdhEoMV0hCbQPfsRtNsB1qWUQ="
     },
     "npins-updater": {
       "type": "Git",
@@ -89,8 +89,8 @@
       "submodules": false,
       "revision": "2191c80ff416137402524c70e01f5a5a5979b892",
       "url": "https://github.com/herbetom/npins-updater/archive/2191c80ff416137402524c70e01f5a5a5979b892.tar.gz",
-      "hash": "0yih1synk5nw9vlc8klqfa23qb5bahrq5pg7ixq90r652v6kl4jx"
+      "hash": "sha256-XRI6zRbFZJBwj+fdgjNUqyw8hHKYTsToTtyWab0OMHo="
     }
   },
-  "version": 5
+  "version": 7
 }
