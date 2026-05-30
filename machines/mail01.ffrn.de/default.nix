@@ -11,6 +11,8 @@
   boot.initrd.systemd.enable = true;
   boot.supportedFilesystems = [ "zfs" ];
 
+  boot.zfs.forceImportRoot = false;
+
   networking.hostName = "mail01";
 
   networking.hostId = "ddf4939d";

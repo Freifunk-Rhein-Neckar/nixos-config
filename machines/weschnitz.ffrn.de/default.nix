@@ -14,6 +14,8 @@
   boot.supportedFilesystems = [ "zfs" ];
   boot.swraid.enable = true;
 
+  boot.zfs.forceImportRoot = false;
+
   # remove warning about unset mail - https://github.com/NixOS/nixpkgs/pull/273308
   boot.swraid.mdadmConf = "PROGRAM ${pkgs.coreutils}/bin/true";
 

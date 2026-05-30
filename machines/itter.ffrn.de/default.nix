@@ -13,7 +13,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];
 
-  networking.hostName = "itter"; # Define your hostname.
+  boot.zfs.forceImportRoot = false;
+
+  networking.hostName = "itter";
   networking.hostId = "08c2eb35";
 
   boot.kernelParams = [ "zfs.zfs_arc_max=8589934592" ];
