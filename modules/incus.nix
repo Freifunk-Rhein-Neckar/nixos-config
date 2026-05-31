@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 let
   useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
-  acmeHostDir = config.security.acme.certs.${useACMEHost}.directory;
 in
 {
   imports = [
@@ -9,29 +8,18 @@ in
   ];
 
   security.acme = {
-    certs."${config.networking.hostName}.${config.networking.domain}" = {
+    certs."${useACMEHost}" = {
       extraDomainNames = [
         "${config.networking.hostName}.int.${config.networking.domain}"
       ];
-      reloadServices = lib.optionals (useACMEHost != null) [
-        "incus.service"
-      ];
     };
-  };
-
-  systemd.services.incus = {
-    after = [] ++ lib.optionals (useACMEHost != null) [ "acme-${useACMEHost}.service" ];
-    wants = lib.mkIf (useACMEHost != null) [ "acme-${useACMEHost}.service" ];
-    serviceConfig.BindReadOnlyPaths = lib.mkIf (useACMEHost != null) [
-      "${acmeHostDir}/fullchain.pem:/var/lib/incus/server.crt"
-      "${acmeHostDir}/key.pem:/var/lib/incus/server.key"
-    ];
   };
 
   virtualisation.incus = {
     enable = true;
     package = pkgs.incus;
     ui.enable = true;
+    useACMEHost = useACMEHost;
     preseed = {
       config = {
         "core.https_address" = ":8443";
