@@ -39,7 +39,9 @@ in {
         origin = "https://${domain}";
         bindaddress = "[::1]:8443";
         ldapbindaddress = "[::]:3636";
-        trust_x_forward_for = true;
+        http_client_address_info = {
+          x-forward-for = ["127.0.0.1" "127.0.0.0/8" "::1"];
+        };
         tls_key = config.security.acme.certs."${acmeDomain}".directory + "/key.pem";
         tls_chain = config.security.acme.certs."${acmeDomain}".directory + "/fullchain.pem";
         online_backup = {
