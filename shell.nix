@@ -10,5 +10,6 @@ in pkgs.mkShell {
     attic-client
     nebula
     (callPackage "${sources.nebula-cert-generator}" {})
+    incus.client
   ];
 }
