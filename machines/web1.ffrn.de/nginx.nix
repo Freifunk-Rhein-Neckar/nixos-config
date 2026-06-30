@@ -33,6 +33,11 @@
         resolver 127.0.0.53:53 ipv4=on ipv6=on;
       }
 
+      upstream census01 {
+        server census01.gluon-census.freifunk.net:444;
+        resolver 127.0.0.53:53 ipv4=on ipv6=on;
+      }
+
       server {
         listen 443;
         proxy_pass idm;
@@ -75,6 +80,15 @@
         server_name forum.ffrn.de;
         server_name faq.ffrn.de;
         server_name forum.freifunk-rhein-neckar.de;
+      }
+      server {
+        listen 443;
+        proxy_pass census01;
+        proxy_protocol on;
+        ssl_preread on;
+        server_name census01.gluon-census.freifunk.net;
+        server_name gluon-census.freifunk.net;
+        server_name prometheus.gluon-census.freifunk.net;
       }
     '';
   };
