@@ -102,6 +102,8 @@ in
   "stats1" = { name, nodes, ... }:  {
     imports = [ ./machines/stats1.ffrn.de ];
     deployment.tags = [ "netcup" ];
+
+    deployment.buildOnTarget = true;
   };
 
   "web1" = { name, nodes, ... }:  {

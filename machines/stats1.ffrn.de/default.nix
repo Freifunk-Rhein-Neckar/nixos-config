@@ -23,9 +23,6 @@
   networking.hostName = "stats1"; # Define your hostname.
   networking.domain = "ffrn.de";
 
-  deployment.buildOnTarget = true;
-  deployment.targetHost = "2a03:4000:60:11f::1";
-
   systemd.network.networks."10-mainif" = {
     matchConfig = {
       MACAddress = "26:79:b1:19:1a:9d";

@@ -13,8 +13,6 @@
   networking.hostName = "gw05";
   networking.domain = "ffrn.de";
 
-  deployment.targetHost = "2a01:4f8:222:3481:80af:beff:fee3:f047";
-
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
