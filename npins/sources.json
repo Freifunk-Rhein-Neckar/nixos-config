@@ -61,9 +61,9 @@
       },
       "branch": "nixos-26.05",
       "submodules": false,
-      "revision": "d59fcaeef8144328b8801f987f1a3af7ca6aec41",
-      "url": "https://gitlab.com/api/v4/projects/simple-nixos-mailserver%2Fnixos-mailserver/repository/archive.tar.gz?sha=d59fcaeef8144328b8801f987f1a3af7ca6aec41",
-      "hash": "sha256-5erzbe5hgJufkqBr3KCYElX4nW+xfJJrFDOvweWZR3w="
+      "revision": "661ec59a97ccee13a63f79280b282eb6f7d3f817",
+      "url": "https://gitlab.com/api/v4/projects/simple-nixos-mailserver%2Fnixos-mailserver/repository/archive.tar.gz?sha=661ec59a97ccee13a63f79280b282eb6f7d3f817",
+      "hash": "sha256-rq6WOopxq3U2AGEWO80o9LIJDYcYIdgw6jyl+y+19w8="
     },
     "nixpkgs": {
       "type": "Git",
