@@ -17,13 +17,13 @@
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "zhaofengli",
+        "owner": "nix-community",
         "repo": "colmena"
       },
       "branch": "main",
       "submodules": false,
       "revision": "349b035a5027f23d88eeb3bc41085d7ee29f18ed",
-      "url": "https://github.com/zhaofengli/colmena/archive/349b035a5027f23d88eeb3bc41085d7ee29f18ed.tar.gz",
+      "url": "https://github.com/nix-community/colmena/archive/349b035a5027f23d88eeb3bc41085d7ee29f18ed.tar.gz",
       "hash": "sha256-QVey3iP3UEoiFVXgypyjTvCrsIlA4ecx6Acaz5C8/PQ="
     },
     "nebula-cert-generator": {
