@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "e5eda626e459f7043868fd2e3b3bf8ce0d1992e6",
-      "url": "https://github.com/nix-community/colmena/archive/e5eda626e459f7043868fd2e3b3bf8ce0d1992e6.tar.gz",
-      "hash": "sha256-XC0OkWCiTM91msCp0o7zfM+iBv06mLlCzFxkP8vf+ac="
+      "revision": "84d419ad080477ed2f31fbf3866551393df647a7",
+      "url": "https://github.com/nix-community/colmena/archive/84d419ad080477ed2f31fbf3866551393df647a7.tar.gz",
+      "hash": "sha256-PI+qji1xkJm3PV7l7/PKJDumFz0fbA4etXE614jRnls="
     },
     "nebula-cert-generator": {
       "type": "Git",
@@ -61,9 +61,9 @@
       },
       "branch": "nixos-26.05",
       "submodules": false,
-      "revision": "6713f24d3567351158916003d91b7c997058abee",
-      "url": "https://gitlab.com/api/v4/projects/simple-nixos-mailserver%2Fnixos-mailserver/repository/archive.tar.gz?sha=6713f24d3567351158916003d91b7c997058abee",
-      "hash": "sha256-HD+h22Qz+5Skaxw0eYUhfpMQGKS2Hp0jtdl3fs79BT8="
+      "revision": "d357b9f048c5532ec81b0e0034c0b8463d5ddd46",
+      "url": "https://gitlab.com/api/v4/projects/simple-nixos-mailserver%2Fnixos-mailserver/repository/archive.tar.gz?sha=d357b9f048c5532ec81b0e0034c0b8463d5ddd46",
+      "hash": "sha256-falBPi+PJtMx0vwII8L24wjDGXNZMwRiVXsw8WTXLEo="
     },
     "nixpkgs": {
       "type": "Git",
