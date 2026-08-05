@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/zramswap.nix
       ../../roles/remote-build-server.nix
       ../../roles/netcup-vm-aarch64.nix
       ../../modules/prometheus/server.nix
@@ -56,7 +57,6 @@
     forceSSL = true;
     useACMEHost = "${config.networking.hostName}.${config.networking.domain}";
   };
-
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

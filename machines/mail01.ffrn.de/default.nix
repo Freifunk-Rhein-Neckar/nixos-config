@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/zramswap.nix
     ../../modules/nebula/lighthouse.nix
     ./mailserver.nix
   ];
