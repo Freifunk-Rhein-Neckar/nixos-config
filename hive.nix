@@ -14,6 +14,12 @@ in
 
     deployment.targetHost = lib.mkDefault "${config.networking.fqdn}";
 
+    nix.channel.enable = false;
+
+    nix.nixPath = [
+      "nixpkgs=${sources.nixpkgs}"
+    ];
+
     imports = [
       (sources.agenix + "/modules/age.nix")
       ./roles/all
