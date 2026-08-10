@@ -27,3 +27,6 @@ jobs:
 
       - name: Realize shell derivation
         run: nix-store -r shell.drv --add-root nix-shell.drv
+
+      - name: Test run nix-shell
+        run: nix-shell --run "echo \"success\""
