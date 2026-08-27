@@ -5,6 +5,7 @@
     ../../modules/zramswap.nix
     ../../modules/nebula/lighthouse.nix
     ./mailserver.nix
+    ./zammad2rspamd.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
