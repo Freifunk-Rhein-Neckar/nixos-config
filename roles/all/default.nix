@@ -5,7 +5,7 @@
     ../../modules/time.nix
     ../../modules/prometheus/exporter/node.nix
     ../../modules/borgbackup
-    ./nebula.nix
+    ../../modules/nebula/nebula-ffrn.nix
   ];
 
   services.openssh = {
@@ -48,6 +48,8 @@
     ncdu
     iperf3
   ];
+
+  services.nebula-ffrn.enable = lib.mkDefault true;
 
   # automatically remove unused old derivations
   nix.gc = {
