@@ -91,6 +91,11 @@ in
     deployment.tags = [ "mail" "hetzner-cloud" ];
   };
 
+  "matrixbot" = { name, nodes, ... }:  {
+    imports = [ ./machines/matrixbot.ffrn.de ];
+    deployment.tags = [ "incus-vm" "hetzner-ffrn" ];
+  };
+
   "weschnitz" = { name, nodes, ... }:  {
     imports = [ ./machines/weschnitz.ffrn.de ];
     deployment.tags = [ "vmhost" ];
