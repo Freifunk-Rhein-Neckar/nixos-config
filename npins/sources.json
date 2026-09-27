@@ -48,9 +48,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "0246b5cd9f45ac1a2ae76b30f81c0394f42f5210",
-      "url": "https://github.com/nix-freifunk/nix-freifunk/archive/0246b5cd9f45ac1a2ae76b30f81c0394f42f5210.tar.gz",
-      "hash": "sha256-PAx4gfoQW8zEx3dSef7ytQDOb/Qqtzr41vEOi0cbRCY="
+      "revision": "0687d283e5a310f8974c0fcc85262ba2c7e206fd",
+      "url": "https://github.com/nix-freifunk/nix-freifunk/archive/0687d283e5a310f8974c0fcc85262ba2c7e206fd.tar.gz",
+      "hash": "sha256-O2/iLIBh5ZbSZ0f4VGwuWYmGP6TmWY9BYN/ZE6Ttkrc="
     },
     "nixos-mailserver": {
       "type": "Git",
