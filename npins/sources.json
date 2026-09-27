@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "b027ee29d959fda4b60b57566d64c98a202e0feb",
-      "url": "https://github.com/ryantm/agenix/archive/b027ee29d959fda4b60b57566d64c98a202e0feb.tar.gz",
-      "hash": "sha256-9VnK6Oqai65puVJ4WYtCTvlJeXxMzAp/69HhQuTdl/I="
+      "revision": "9353cb29366a8535ac9483065284785fd48012a2",
+      "url": "https://github.com/ryantm/agenix/archive/9353cb29366a8535ac9483065284785fd48012a2.tar.gz",
+      "hash": "sha256-/FjF9A8HVLVftjdmz1MPA2G0wSYWRaC628NTAsCqeyI="
     },
     "colmena": {
       "type": "Git",
