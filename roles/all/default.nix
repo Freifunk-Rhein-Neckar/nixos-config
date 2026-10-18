@@ -56,7 +56,7 @@
     automatic = true;
     dates = "daily";
     randomizedDelaySec = "6h";
-    options = "--delete-older-than 21d";
+    options = lib.mkDefault "--delete-older-than 21d";
   };
 
   # Ensure that we can't even touch the configuration directory if we wanted to.
