@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "4d2d652a81322c906b9d945c331715d6c088261f",
-      "url": "https://github.com/nix-community/colmena/archive/4d2d652a81322c906b9d945c331715d6c088261f.tar.gz",
-      "hash": "sha256-6YGyJyFq6i4ZQ8/4gEwRk5RNFqCfK3bAqSsGvH7CrKA="
+      "revision": "e269669b798a361a521029d5d15e289124a15038",
+      "url": "https://github.com/nix-community/colmena/archive/e269669b798a361a521029d5d15e289124a15038.tar.gz",
+      "hash": "sha256-jp+gxgnCdMhpBxxBnOoHW5fRVc+C5rKCFHsP/afoh3w="
     },
     "nebula-cert-generator": {
       "type": "Git",
