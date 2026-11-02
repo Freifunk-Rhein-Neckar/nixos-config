@@ -13,8 +13,6 @@ in {
     ./postgresql
   ];
 
-  systemd.services."phpfpm-nextcloud".enable = false;
-
   security.acme.certs."${acmeDomain}" = {
     extraDomainNames = [
       "${domain}"
