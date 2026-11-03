@@ -23,7 +23,7 @@ in {
   };
 
   services.kanidm = {
-    package = pkgs.kanidm_1_11;
+    package = pkgs.kanidm_1_12;
 
     client = {
       enable = true;
